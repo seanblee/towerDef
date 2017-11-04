@@ -6,11 +6,7 @@
 using namespace std;
 
 buySell::buySell() {
-	string msg("buy/sell options");
-	position loc(500, 700);
-	initEntity(loc, 200, 200, msg);
 	
-	numTowers = 0;
 }
 
 buySell::buySell(int n, sf::Texture& spriteSheet, GUIStyle& style) : numTowers(n) {

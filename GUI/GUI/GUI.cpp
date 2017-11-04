@@ -22,7 +22,7 @@ int position::getY() { return y; }
 
 GUIStyle::GUIStyle() {}
 
-GUIStyle::GUIStyle(sf::Font font, int borderSize,
+GUIStyle::GUIStyle(sf::Font font, float borderSize,
 	sf::Color bodyColour, sf::Color borderColour, sf::Color textColour) :
 		bodyCol(bodyColour), 
 		borderCol(borderColour),
@@ -31,39 +31,16 @@ GUIStyle::GUIStyle(sf::Font font, int borderSize,
 		borderSize(borderSize) {}
 
 
-GUIEntity::GUIEntity() {
-}
+cScreen::cScreen() {}
 
-GUIEntity::GUIEntity(int& width, int& height) {
-
-	position zero(0,0);
-	string msg("Blank Entity");
-
-	initEntity(zero, width, height,  msg);
-	
-}
-
-
-
-GUIEntity::GUIEntity(position& location, int& width, int& height) {
-	
-	string msg("Blank Entity");
-
-	initEntity(location, width, height, msg);
+cScreen::cScreen(GUIStyle& tempStyle) {
+	style = tempStyle;
 }
 
 
 
 
-void GUIEntity::initEntity(position& location, int width, int height, string& msg) {
-	w = width;
-	h = height;
-	message.setString(msg);
-}
-
-
-
-void GUIEntity::moveSprite(sf::Sprite& sprite) {
+void cScreen::moveSprite(sf::Sprite& sprite) {
 	short int checkmove(-1);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
@@ -83,17 +60,21 @@ void GUIEntity::moveSprite(sf::Sprite& sprite) {
 	case -1 :
 		break;
 	case (1) :
-		sprite.move(1,0);
+		sprite.move(3,0);
 		break;
 	case(2):
-		sprite.move(0,-1);
+		sprite.move(0,-3);
 		break;
 	case(3):
-		sprite.move(-1,0);
+		sprite.move(-3,0);
 		break;
 	case(4):
-		sprite.move(0,1);
+		sprite.move(0,3);
 		break;
 	}
 	return;
+}
+
+GUIStyle cScreen::getStyle() {
+	return style;
 }

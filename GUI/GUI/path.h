@@ -8,7 +8,7 @@
 using namespace std;
 
 
-class path : public GUIEntity {
+class path {
 	sf::Texture map;
 	int tileWidth; //how many tiles there are in path horizontally
 	int tileHeight; //how many tiles there are in path vertically

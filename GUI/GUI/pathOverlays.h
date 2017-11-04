@@ -7,7 +7,7 @@
 using namespace std;
 
 
-class pathOverlays : GUIEntity {
+class pathOverlays {
 	
 	sf::Text playerHP;
 	sf::Text playerMoney;

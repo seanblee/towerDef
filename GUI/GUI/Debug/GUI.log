@@ -1,4 +1,2 @@
-﻿  GUI.cpp
-     Creating library C:\Users\marieqian\source\repos\GUI\Debug\GUI.lib and object C:\Users\marieqian\source\repos\GUI\Debug\GUI.exp
-sfml-main-d.lib(MainWin32.cpp.obj) : warning LNK4099: PDB 'vc140.pdb' was not found with 'sfml-main-d.lib(MainWin32.cpp.obj)' or at 'C:\Users\marieqian\source\repos\GUI\Debug\vc140.pdb'; linking object as if no debug info
+﻿  pathOverlays.cpp
   GUI.vcxproj -> C:\Users\marieqian\source\repos\GUI\Debug\GUI.exe

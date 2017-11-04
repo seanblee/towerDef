@@ -6,7 +6,7 @@
 using namespace std;
 
 
-class buySell : public GUIEntity {
+class buySell {
 private:
 	int numTowers;
 	vector<sf::Sprite> towers;

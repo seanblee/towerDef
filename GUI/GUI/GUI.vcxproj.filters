@@ -39,6 +39,39 @@
     <ClInclude Include="MovingSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BuySellPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelComplete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screenElement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveComplete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveDescription.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveRunningPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinnerPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -53,14 +86,14 @@
     <ClCompile Include="path.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Implementation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MovingSprite.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="pathOverlays.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

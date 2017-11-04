@@ -8,9 +8,7 @@ using namespace std;
 
 pathOverlays::pathOverlays() {
 
-	string msg("path overlays");
-	position loc(800, 0);
-	initEntity(loc, 250, 150, msg);
+	
 
 	sf::RectangleShape rekt(sf::Vector2f(250, 150));
 	rekt.setPosition(750, 0);
@@ -18,14 +16,14 @@ pathOverlays::pathOverlays() {
 	backing = rekt;
 
 	playerHP.setString("HP: 0");
-	playerHP.setPosition(765, 20);
+	playerHP.setPosition(770, 20);
 
 
 	playerMoney.setString("$: 0");
-	playerMoney.setPosition(765, 50);
+	playerMoney.setPosition(770, 50);
 
 	statusMessage.setString("Status:\n\n Starting Game...");
-	statusMessage.setPosition(765, 80);
+	statusMessage.setPosition(770, 80);
 	
 
 }
@@ -46,15 +44,15 @@ void pathOverlays::setStyle(GUIStyle& style) {
 
 	playerHP.setFillColor(style.textCol);
 	playerHP.setFont(style.font);
-	playerHP.setCharacterSize(16);
+	playerHP.setCharacterSize(18);
 
 	playerMoney.setFillColor(style.textCol);
 	playerMoney.setFont(style.font);
-	playerMoney.setCharacterSize(16);
+	playerMoney.setCharacterSize(18);
 
 	statusMessage.setFillColor(style.textCol);
 	statusMessage.setFont(style.font);
-	statusMessage.setCharacterSize(16);
+	statusMessage.setCharacterSize(18);
 }
 
 void pathOverlays::updateHP(string& HP) {
