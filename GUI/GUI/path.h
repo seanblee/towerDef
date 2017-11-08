@@ -17,5 +17,7 @@ public:
 	path(string&, int, int);
 
 	sf::Sprite pathImage;
+	int getWidth();
+	int getHeight();
 
 };

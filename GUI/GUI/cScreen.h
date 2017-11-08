@@ -14,12 +14,8 @@ class cScreen
 public:
 
 	cScreen();
-	
 	cScreen(GUIStyle&);
-
-	void moveSprite(sf::Sprite&);
 	virtual int Run(sf::RenderWindow &App) =0;
-	
 	GUIStyle getStyle();
 	
 

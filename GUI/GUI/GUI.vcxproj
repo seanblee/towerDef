@@ -89,6 +89,7 @@
     <ClInclude Include="BuySell.h" />
     <ClInclude Include="BuySellPage.h" />
     <ClInclude Include="cScreen.h" />
+    <ClInclude Include="Cursor.h" />
     <ClInclude Include="GameOverPage.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="LevelComplete.h" />
@@ -108,11 +109,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BuySell.cpp" />
+    <ClCompile Include="BuySellPage.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovingSprite.cpp" />
     <ClCompile Include="path.cpp" />
     <ClCompile Include="pathOverlays.cpp" />
+    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

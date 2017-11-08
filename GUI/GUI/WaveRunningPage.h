@@ -17,16 +17,11 @@ public:
 int WaveRunningPage::Run(sf::RenderWindow &window)
 {
 
-	sf::Texture spriteSheet;
-	sf::RectangleShape testoverlays(sf::Vector2f(1000, 700));
-	testoverlays.setFillColor(sf::Color(0, 0, 0));
-
-	if (!spriteSheet.loadFromFile("SpriteSheet.png")) {/*put in exception later*/ }
-
-	sf::Sprite testsprite;
-	testsprite.setTexture(spriteSheet);
-	testsprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
-	testsprite.setPosition(450, 450);
+	//I found this came in handy for positioning
+	WINDOWINFO wiInfo;
+	GetWindowInfo(window.getSystemHandle(), &wiInfo);
+	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
+	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
 
 
 	GUIStyle style(getStyle());
@@ -36,11 +31,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	pathOverlays overlays;
 	overlays.setStyle(style);
 	buySell buySellOverlay(3, spriteSheet, style);
-	//I found this came in handy for positioning
-	WINDOWINFO wiInfo;
-	GetWindowInfo(window.getSystemHandle(), &wiInfo);
-	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
-	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
+	
 
 
 	//define things to be added to window later

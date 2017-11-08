@@ -13,3 +13,11 @@ path::path(string& filename, int width, int height) {
 	tileWidth = width;
 	tileHeight = height;
 }
+
+int path::getWidth() {
+	return tileWidth;
+}
+
+int path::getHeight() {
+	return tileHeight;
+}
