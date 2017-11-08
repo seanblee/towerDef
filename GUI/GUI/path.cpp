@@ -8,14 +8,16 @@ using namespace std;
 
 path::path(string& filename, int width, int height) {
 	map.loadFromFile(filename);
-	position loc;
 	pathImage.setTexture(map);
 	
 	tileWidth = width;
 	tileHeight = height;
+}
 
-	string msg("Map Image");
+int path::getWidth() {
+	return tileWidth;
+}
 
-	initEntity(loc, 1000, 700, msg);
-
+int path::getHeight() {
+	return tileHeight;
 }

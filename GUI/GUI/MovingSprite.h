@@ -5,9 +5,6 @@
 
 #include <SFML/Graphics.hpp>
 
-
-class movingSprite {
-	movingSprite();
-	movingSprite(sf::Sprite, char, position&);
-
-};
+/*MovingSprite.h
+	will eventually be used for animations????? maybe????? probably yeah
+*/
