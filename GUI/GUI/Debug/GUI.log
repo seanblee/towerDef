@@ -1,0 +1,3 @@
+﻿  BuySellPage.cpp
+c:\users\marieqian\source\repos\gui\gui\buysellpage.cpp(230): warning C4715: 'BuySellPage::Run': not all control paths return a value
+  GUI.vcxproj -> C:\Users\marieqian\source\repos\GUI\Debug\GUI.exe
