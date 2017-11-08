@@ -6,6 +6,16 @@
 #include "stdafx.h"
 #include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
+
+/* WaveRunningPage.h
+	implementation of game screen where the wave runs
+		-hostiles generated, towers shoot projectiles and hostiles
+
+	to do: projectile animations, hostile animation, logic for going to either WaveComplete, LevelComplete, WinnerPage or GameOverScreen
+	(or would the logic come from GameLogic???), pass in towers from towerManager
+*/
+
+
 class WaveRunningPage : public cScreen
 {
 	sf::Texture spriteSheet;
@@ -23,9 +33,10 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
 	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
 
-
+	//initialize GUI style
 	GUIStyle style(getStyle());
 
+	//set path background and overlays
 	string easyPathMap("path1.jpg");
 	path easyPath(easyPathMap, 10, 7);
 	pathOverlays overlays;

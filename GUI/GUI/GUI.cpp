@@ -6,20 +6,14 @@
 
 using namespace std;
 
-position::position() : x(0), y(0) {}
+/*GUI.cpp
 
-position::position(int a, int b) : x(a), y(b) {}
+**took out all the position functions bc unused
 
 
-void position::setLocation(int a, int b){
-	x = a;
-	y = b;
-	
-}
+*/
 
-int position::getX() { return x; }
-int position::getY() { return y; }
-
+//constructors
 GUIStyle::GUIStyle() {}
 
 GUIStyle::GUIStyle(sf::Font font, float borderSize,
@@ -29,6 +23,8 @@ GUIStyle::GUIStyle(sf::Font font, float borderSize,
 		textCol(textColour),
 		font(font), 
 		borderSize(borderSize) {}
+
+//setStyle functions
 
 void GUIStyle::setStyle(sf::Text& text, int fontSize) {
 	text.setFillColor(textCol);
@@ -44,7 +40,8 @@ void GUIStyle::setStyle(sf::RectangleShape& rect) {
 
 
 
-
+//******cScreen implementation code
+//i don't remember why this is here but it is i'll move it later
 
 cScreen::cScreen() {}
 

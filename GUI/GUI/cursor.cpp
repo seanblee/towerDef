@@ -1,6 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 
+/*Cursor.cpp
+	implements cursor class
+*/
+
+//constructors
 cursor::cursor() {
 }
 
@@ -14,12 +19,17 @@ cursor::cursor(sf::Sprite& defaultCursor) {
 
 }
 
+//change cursor image
 void cursor::changeCursor(sf::Sprite& newImage) {
 	sf::Vector2f position(cursorImage.getPosition());
 	cursorImage = newImage;
 	cursorImage.setPosition(position);
 	cursorImage.setScale(1.2f, 1.2f);
 }
+
+
+//move cursor
+//has logic for listening to keyboard input
 
 void cursor::moveCursor() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && location.x <=20) {
