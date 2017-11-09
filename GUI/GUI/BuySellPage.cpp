@@ -6,6 +6,8 @@
 #include "stdafx.h"
 #include "BuySellPage.h"
 #include <SFML/Graphics.hpp>
+#include "Tower.h"
+#include "TowerManager.h"
 
 int BuySellPage::Run(sf::RenderWindow &window)
 {
@@ -48,7 +50,7 @@ int BuySellPage::Run(sf::RenderWindow &window)
 	userMessage.push_back(" ");
 	path easyPath(easyPathMap, 20, 14);
 
-	vector<sf::Sprite>towersBought;
+	TowerManager BuySellManager;
 
 	fstream mapFile;
 	mapFile.open("Intmap.txt");
@@ -139,7 +141,8 @@ int BuySellPage::Run(sf::RenderWindow &window)
 					}
 					intMap[cur.getX()][cur.getY()] = tower;
 					sf::Sprite newTowerSprite(cur.cursorImage);
-					towersBought.push_back(newTowerSprite);
+					Tower newTower(newTowerSprite);
+					BuySellManager.addTower(newTower);
 					overlays.setMessage(userMessage[(tower*2) + 4]);
 					overlays.setOptions(userMessage[(tower * 2) + 5]);
 
@@ -194,10 +197,7 @@ int BuySellPage::Run(sf::RenderWindow &window)
 			window.draw(easyPath.pathImage);
 			window.draw(overlays.backing);
 
-			for (sf::Sprite i : towersBought) {
-				window.draw(i);
-			}
-
+			BuySellManager.drawTowers(window);
 			window.draw(cur.cursorImage);
 
 			window.draw(buySellOverlay.getBorder(1));
