@@ -1,3 +1,33 @@
-﻿  BuySellPage.cpp
-c:\users\marieqian\source\repos\gui\gui\buysellpage.cpp(230): warning C4715: 'BuySellPage::Run': not all control paths return a value
-  GUI.vcxproj -> C:\Users\marieqian\source\repos\GUI\Debug\GUI.exe
+﻿  main.cpp
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(81): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\screenelement.h(131): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(110): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(110): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(113): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(113): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(118): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(147): warning C4018: '<': signed/unsigned mismatch
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(187): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(191): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(88): warning C4715: 'WaveDescription::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\levelcomplete.h(74): warning C4715: 'LevelComplete::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\wavecomplete.h(71): warning C4715: 'WaveComplete::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\gameoverpage.h(74): warning C4715: 'GameOverPage::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(154): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\winnerpage.h(75): warning C4715: 'WinnerPage::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(299): warning C4715: 'WaveRunningPage::getIntForPage': not all control paths return a value
+  GUI.vcxproj -> C:\Users\Kaitlynn\Desktop\GUI\Debug\GUI.exe

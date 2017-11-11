@@ -20,6 +20,8 @@ class cScreen
 {
 	GUIStyle style; //stores the GUI's style attributes
 
+	
+
 public:
 	//constructors
 	cScreen();
@@ -30,6 +32,4 @@ public:
 
 	//get the GUI style
 	GUIStyle getStyle();
-	
-
 };
