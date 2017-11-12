@@ -9,11 +9,6 @@
 
 int BuySellPage::Run(sf::RenderWindow &window)
 {
-	//I found this came in handy for positioning
-	WINDOWINFO wiInfo;
-	GetWindowInfo(window.getSystemHandle(), &wiInfo);
-	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
-	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
 
 	//initialize state and tower to 0
 	state = 0;
@@ -35,6 +30,8 @@ int BuySellPage::Run(sf::RenderWindow &window)
 
 	//initialize cursor
 	cursor cur(defaultCursor);
+
+	
 
 	//allll of the messages im printing
 	vector<string> userMessage;
@@ -65,8 +62,8 @@ int BuySellPage::Run(sf::RenderWindow &window)
 	//0 is not path, -1 is path
 	fstream mapFile;
 	mapFile.open("Intmap.txt");
+	
 	int intMap[20][16];
-
 	while (mapFile.is_open()) {
 		for (int row = 0; row < 16; row++) {
 			for (int col = 0; col < 20; col++) {

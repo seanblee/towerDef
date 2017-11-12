@@ -75,6 +75,12 @@
     <ClInclude Include="Cursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\source\repos\WindowsProject5\WindowsProject5\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fakeHostile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -103,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="BuySellPage.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\repos\WindowsProject5\WindowsProject5\Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

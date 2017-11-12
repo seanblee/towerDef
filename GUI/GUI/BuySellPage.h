@@ -22,6 +22,7 @@ class BuySellPage : public cScreen
 	sf::Texture spriteSheet; //spriteSheet.png
 	int tower; //tower number; 0 is nothing, a blank cursor
 	int state; //0 = selection, 1 = buy,  2 = sell
+	
 
 public:
 	BuySellPage(GUIStyle& style, sf::Texture sheet) : cScreen(style), spriteSheet(sheet) { }

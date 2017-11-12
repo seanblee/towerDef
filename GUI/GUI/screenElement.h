@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
+//class draws stuff for info pages that is drawn alot
+//TODO: fix textures, load data for info
 class screenElement
 {
 public:
@@ -21,13 +23,9 @@ void screenElement::drawInfoBar(sf::RenderWindow &window, sf::Text TitleText, in
 
 	sf::Text infoBox(info, style.font, 40);
 	infoBox.setFillColor(style.textCol);
-
-	// FIX SPACING
-	int spacing=0;
-	if (numBar > 0)
-		spacing = 30;
-
-	infoBox.setPosition(10, 20+ spacing+(TitleText.getPosition().y + TitleText.getLocalBounds().height + (infoBox.getLocalBounds().height*numBar*2)));
+	infoBox.setPosition(100,100);
+	infoBox.setPosition(infoBox.getOutlineThickness(), 
+		((TitleText.getPosition().y + TitleText.getLocalBounds().height+ infoBox.getLocalBounds().height*numBar))+(30*(numBar+1)));
 	window.draw(infoBox);
 }
 void screenElement::drawExitText(sf::RenderWindow &window) {
@@ -36,11 +34,11 @@ void screenElement::drawExitText(sf::RenderWindow &window) {
 	GetWindowInfo(window.getSystemHandle(), &wiInfo);
 	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
 	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
-	sf::Text exitText("(x) to exit", style.font, 20);
+	sf::Text exitText("(x) to exit", style.font, 30);
 	exitText.setFillColor(style.textCol);
 	int widthText = exitText.getLocalBounds().width;
 	int heightText = exitText.getLocalBounds().height;
-	exitText.setPosition(0, heightWin - heightText - 10);
+	exitText.setPosition(0, heightWin - heightText - 50);
 	window.draw(exitText);
 }
 void screenElement::drawNextButton(sf::RenderWindow &window) {
@@ -97,7 +95,7 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 	enemyBarText1.setPosition(enemyBar.getPosition().x + 10,
 		enemyBar.getPosition().y + enemyBarHeight / 2 - enemyBarText1.getLocalBounds().height / 2 - 15);
 	sf::Texture texture;
-	texture.loadFromFile("enemyTexture.jpg");
+	texture.loadFromFile("enemyTexture1.jpg");
 
 	int enemyImgWidth = 50;
 	int enemyImgHeight = 50;
