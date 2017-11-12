@@ -1,33 +1,172 @@
-﻿  main.cpp
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(81): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(131): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(27): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(110): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(110): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(113): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(113): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(118): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(147): warning C4018: '<': signed/unsigned mismatch
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(187): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(191): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(88): warning C4715: 'WaveDescription::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\levelcomplete.h(74): warning C4715: 'LevelComplete::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\wavecomplete.h(71): warning C4715: 'WaveComplete::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\gameoverpage.h(74): warning C4715: 'GameOverPage::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(154): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\winnerpage.h(75): warning C4715: 'WinnerPage::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(299): warning C4715: 'WaveRunningPage::getIntForPage': not all control paths return a value
-  GUI.vcxproj -> C:\Users\Kaitlynn\Desktop\GUI\Debug\GUI.exe
+﻿  stdafx.cpp
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(21): error C3646: 'style': unknown override specifier
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(28): error C2061: syntax error: identifier 'GUIStyle'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(28): error C2535: 'cScreen::cScreen(void)': member function already defined or declared
+  c:\users\marieqian\source\repos\gui\gui\cscreen.h(27): note: see declaration of 'cScreen::cScreen'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(34): error C3646: 'getStyle': unknown override specifier
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(34): error C2059: syntax error: '('
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(34): error C2238: unexpected token(s) preceding ';'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(42): error C2065: 'GUIStyle': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(42): error C2065: 'tempStyle': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(42): error C2761: '{ctor}': redeclaration of member is not allowed
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(42): error C2448: 'cScreen::{ctor}': function-style initializer appears to be a function definition
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(47): error C2039: 'getStyle': is not a member of 'cScreen'
+  c:\users\marieqian\source\repos\gui\gui\cscreen.h(20): note: see declaration of 'cScreen'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(47): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(47): error C2146: syntax error: missing ';' before identifier 'getStyle'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(47): error C2143: syntax error: missing ';' before '{'
+c:\users\marieqian\source\repos\gui\gui\cscreen.h(47): error C2447: '{': missing function header (old-style formal list?)
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(9): error C3646: 'style': unknown override specifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(10): error C2061: syntax error: identifier 'GUIStyle'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(18): error C2065: 'tempStyle': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(18): error C2761: 'void screenElement::setStyle(void)': redeclaration of member is not allowed
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(18): error C2448: 'screenElement::setStyle': function-style initializer appears to be a function definition
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(24): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(25): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(25): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(25): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(37): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(38): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(38): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(38): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(54): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(54): error C2228: left of '.bodyCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(54): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(55): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(55): error C2228: left of '.borderSize' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(55): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(56): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(56): error C2228: left of '.borderCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(56): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(59): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(60): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(60): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(60): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(64): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(65): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(65): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(65): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(81): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(81): error C2228: left of '.borderSize' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(81): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(84): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(84): error C2228: left of '.bodyCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(84): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(85): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(85): error C2228: left of '.borderSize' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(85): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(86): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(86): error C2228: left of '.borderCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(86): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(93): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(94): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(94): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(94): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(103): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(103): error C2228: left of '.borderSize' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(103): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(104): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(104): error C2228: left of '.borderCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(104): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(109): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(110): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(110): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(110): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(117): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(118): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(118): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(118): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(122): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(123): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(123): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\screenelement.h(123): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\screenelement.h(131): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(12): error C2061: syntax error: identifier 'GUIStyle'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(12): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(26): error C2146: syntax error: missing ';' before identifier 'style'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(26): error C3861: 'getStyle': identifier not found
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(26): error C3861: 'style': identifier not found
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(29): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(29): error C2228: left of '.bodyCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(29): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(30): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(30): error C2228: left of '.borderSize' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(30): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(31): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(31): error C2228: left of '.borderCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(31): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(35): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(36): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(36): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(36): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): note: Reason: cannot convert from 'int' to 'const sf::Font'
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(40): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(41): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(41): error C2228: left of '.textCol' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(41): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(49): error C2065: 'style': undeclared identifier
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(49): error C2228: left of '.font' must have class/struct/union
+  c:\users\marieqian\source\repos\gui\gui\mainmenu.h(49): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(49): error C2664: 'sf::Text::Text(sf::Text &&)': cannot convert argument 2 from 'int' to 'const sf::Font &'
+c:\users\marieqian\source\repos\gui\gui\mainmenu.h(49): fatal error C1003: error count exceeds 100; stopping compilation

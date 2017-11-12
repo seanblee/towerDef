@@ -2,11 +2,8 @@
 //
 
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include "screens.h"
 
 /*main.cpp
 	initializes the universal GUI style, including loading the font from file
@@ -35,36 +32,38 @@ int main(int argc, char** argv)
 
 
 	//Applications variables
-	std::vector<cScreen*> Screens;
 	int screen = 0;
 
 	//Window creation
 	sf::RenderWindow window(sf::VideoMode(1000, 700), "Game Prototype");
 
 	//Screens preparations
+	screenManager screenMan;
+
 	MainMenu s0(style); //main menu page
-	Screens.push_back(&s0);
+	screenMan.Screens.push_back(&s0);
 	WaveDescription s1(style); //wave description page
-	Screens.push_back(&s1);
+	screenMan.Screens.push_back(&s1);
 	BuySellPage s2(style, spriteSheet); //where user buys, sells, and places towers
-	Screens.push_back(&s2);
+	screenMan.Screens.push_back(&s2);
 	WaveRunningPage s3(style, spriteSheet); //wave runs
-	Screens.push_back(&s3);
+	screenMan.Screens.push_back(&s3);
 	WaveComplete s4(style); //wave complete
-	Screens.push_back(&s4);
+	screenMan.Screens.push_back(&s4);
 	LevelComplete s5(style); //level complete
-	Screens.push_back(&s5);
+	screenMan.Screens.push_back(&s5);
 	WinnerPage s6(style); //winner page
-	Screens.push_back(&s6);
+	screenMan.Screens.push_back(&s6);
 	GameOverPage s7(style); //game over page
-	Screens.push_back(&s7);
+	screenMan.Screens.push_back(&s7);
+	
 
-
-	//Main loop
-	while (screen >= 0)
+	while (screenMan.currentScreen >= 0)
 	{
-		screen = Screens[screen]->Run(window);
+		
+
 	}
+	
 
 	return EXIT_SUCCESS;
 }

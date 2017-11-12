@@ -19,10 +19,10 @@
 class cScreen
 {
 	GUIStyle style; //stores the GUI's style attributes
-
 	
 
 public:
+
 	//constructors
 	cScreen();
 	cScreen(GUIStyle&); //can pass in a universal GUI style
@@ -33,3 +33,17 @@ public:
 	//get the GUI style
 	GUIStyle getStyle();
 };
+
+//******cScreen implementation code
+//moved from GUI.cpp
+
+cScreen::cScreen() {}
+
+cScreen::cScreen(GUIStyle& tempStyle) {
+	style = tempStyle;
+}
+
+
+GUIStyle cScreen::getStyle() {
+	return style;
+}
