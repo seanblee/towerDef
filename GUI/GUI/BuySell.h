@@ -17,7 +17,6 @@ public:
 	buySell();
 	buySell(int, sf::Texture&, GUIStyle&);
 
-
 	sf::Sprite getTower(int);
 	sf::RectangleShape getBorder(int);
 	sf::Text getText(int);
