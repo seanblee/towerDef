@@ -10,12 +10,15 @@ private:
 
 public:
 
+	TowerManager() {};
+
 	void addTower(Tower towerObj) {
 		towersBought.push_back(towerObj);
 	}
-	void drawTowers() {
-
+	void drawTowers(sf::RenderWindow &window) {
+		for (Tower t : towersBought) {
+			window.draw(t.getSprite());
+		}
 	}
-
 };
 
