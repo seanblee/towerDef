@@ -14,37 +14,38 @@
 #include <time.h>       /* time */
 
 /* WaveRunningPage.h
-implementation of game screen where the wave runs
--hostiles generated, towers shoot projectiles and hostiles
+	implementation of game screen where the wave runs
+		-hostiles generated, towers shoot projectiles and hostiles
 
-to do: projectile animations, hostile animation, logic for going to either WaveComplete, LevelComplete, WinnerPage or GameOverScreen
-(or would the logic come from GameLogic???-this is how code works for now), pass in towers from towerManager,
-make spawnHostile(Hostile h),moveHostile,checkHostileEndOfPath, removeHostile, checkHostileMove work with real hostile class
+	to do: projectile animations, hostile animation, logic for going to either WaveComplete, LevelComplete, WinnerPage or GameOverScreen
+	(or would the logic come from GameLogic???-this is how code works for now), pass in towers from towerManager, 
+	make spawnHostile(Hostile h),moveHostile,checkHostileEndOfPath, removeHostile, checkHostileMove work with real hostile class
 
-
+	
 */
 
 
 class WaveRunningPage : public cScreen
 {
 	sf::Texture spriteSheet;
+	bool switchPage = false;// true if time to go to next page
+	int nextPageInt=0;// holds integer that will be returned to go next selected page
+	int getIntForPage(cScreen& screen);//given screen object gets return int value for its class
 	vector<int> beginningTiles;
 	vector<Hostile> hostilesOnScreen;//holds all hostiles currently on screen
 	int intMap[20][16];// to hold map, need in multiple functions
-
-	bool switchPage; //flag that's raised when it's time to move on to next page
-
 public:
 	WaveRunningPage(GUIStyle& style, sf::Texture Sheet) : cScreen(style) { spriteSheet = Sheet; }
-
+	void goToNextPage(cScreen& screen);// sets switchPage to true, nextPageInt to correct integer, will now 
+									//switch to correct page
 	virtual int Run(sf::RenderWindow &window);
-
+	
 	void spawnHostile(Hostile h);
-	int moveHostile(Hostile h, int x, int y);//returns -1 if move illegal and doesn't move, 0 if not
+	int moveHostile(Hostile h,int x, int y);//returns -1 if move illegal and doesn't move, 0 if not
 	bool checkHostileEndOfPath(Hostile h);
 	void removeHostile(Hostile h);
 	bool checkHostileMove(Hostile h, int x, int y);
-
+	
 };
 
 
@@ -54,7 +55,6 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	Hostile h;
 	h.type = 3;
 
-	int nextScreen(4);
 
 	//initialize GUI style
 	GUIStyle style(getStyle());
@@ -66,8 +66,8 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	overlays.setStyle(style);
 	buySell buySellOverlay(3, spriteSheet, style);
 
+	//becomes true when time to go to nextPage
 	switchPage = false;
-
 	hostilesOnScreen.clear();
 	while (window.isOpen())
 	{
@@ -82,8 +82,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 			}
 			//time to switch the page
 			if (switchPage) {
-				
-				return nextScreen;
+				return nextPageInt;
 			}
 
 
@@ -95,7 +94,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				if (event.key.code == sf::Keyboard::Return)
 				{
 					WaveComplete w(style);
-					return nextScreen;
+					goToNextPage(w);
 				}
 
 				//this is temporary, outside code will call spawnHostile, moveHostile, and removeHostile
@@ -105,7 +104,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				}
 				if (event.key.code == sf::Keyboard::B)
 				{
-
+					
 					if (hostilesOnScreen.size() != 0) {
 						int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x + 5,
 							hostilesOnScreen[0].sprite.getPosition().y);
@@ -121,7 +120,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 								}
 							}
 						}
-						if (checkHostileEndOfPath(hostilesOnScreen[0])) {
+						if(checkHostileEndOfPath(hostilesOnScreen[0])) {
 							removeHostile(hostilesOnScreen[0]);
 						}
 					}
@@ -132,6 +131,11 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				//END TEMPORARY STUFF
 			}
 
+			
+
+		
+			
+		
 			window.clear();
 			window.draw(easyPath.pathImage);
 			window.draw(overlays.backing);
@@ -239,20 +243,57 @@ int WaveRunningPage::moveHostile(Hostile h, int x, int y) {
 //remove hostile given, used when hostile at end of path
 void WaveRunningPage::removeHostile(Hostile h) {
 
-	swap(hostilesOnScreen[h.idNum], hostilesOnScreen[hostilesOnScreen.size() - 1]);
-	int temp = hostilesOnScreen[hostilesOnScreen.size() - 1].idNum;
+	swap(hostilesOnScreen[h.idNum], hostilesOnScreen[hostilesOnScreen.size()-1]);
+	int temp=hostilesOnScreen[hostilesOnScreen.size() - 1].idNum;
 	hostilesOnScreen[hostilesOnScreen.size() - 1].idNum = hostilesOnScreen[h.idNum].idNum;
 	hostilesOnScreen[h.idNum].idNum = temp;
 
-	hostilesOnScreen.erase(hostilesOnScreen.end() - 1);
+	hostilesOnScreen.erase(hostilesOnScreen.end()-1);
 }
 
 //returns true if hostile at end of path else returns false
 bool WaveRunningPage::checkHostileEndOfPath(Hostile h) {
 	if (h.sprite.getPosition().x >= 990) {//if end on right this would mean the hostile is moving off screen at end of path
-										  //and needs to be removed
+											//and needs to be removed
 		return true;
 	}
 	return false;
+
+}
+
+
+
+//function to be called by gameLogic when time to switch page, gives page want to switch to
+void WaveRunningPage::goToNextPage(cScreen& screen) {
+	switchPage = true;
+	nextPageInt = getIntForPage(screen);
+
+}
+//takes in screen, and returns the integer for its corresponding place in the vector
+int WaveRunningPage::getIntForPage(cScreen& screen) {
+	if (typeid(screen).name() == typeid(MainMenu).name()) {
+		return 0;
+	}
+	if (typeid(screen).name() == typeid(WaveDescription).name()) {
+		return 1;
+	}
+	if (typeid(screen).name() == typeid(BuySellPage).name()) {
+		return 2;
+	}
+	if (typeid(screen).name() == typeid(WaveRunningPage).name()) {
+		return 3;
+	}
+	if (typeid(screen).name() == typeid(WaveComplete).name()) {
+		return 4;
+	}
+	if (typeid(screen).name() == typeid(LevelComplete).name()) {
+		return 5;
+	}
+	if (typeid(screen).name() == typeid(WinnerPage).name()) {
+		return 6;
+	}
+	if (typeid(screen).name() == typeid(GameOverPage).name()) {
+		return 7;
+	}
 
 }

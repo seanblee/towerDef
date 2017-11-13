@@ -57,6 +57,9 @@
     <ClInclude Include="screenElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="screens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="WaveComplete.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -72,10 +75,10 @@
     <ClInclude Include="Cursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fakeHostile.h">
+    <ClInclude Include="..\..\..\source\repos\WindowsProject5\WindowsProject5\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="screenManager.h">
+    <ClInclude Include="fakeHostile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -107,8 +110,8 @@
     <ClCompile Include="BuySellPage.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="screenManager.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="..\..\..\source\repos\WindowsProject5\WindowsProject5\Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

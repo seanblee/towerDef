@@ -40,3 +40,16 @@ void GUIStyle::setStyle(sf::RectangleShape& rect) {
 
 
 
+//******cScreen implementation code
+//i don't remember why this is here but it is i'll move it later
+
+cScreen::cScreen() {}
+
+cScreen::cScreen(GUIStyle& tempStyle) {
+	style = tempStyle;
+}
+
+
+GUIStyle cScreen::getStyle() {
+	return style;
+}
