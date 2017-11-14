@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
+#include "fakeHostile.h"
 //class draws stuff for info pages that is drawn alot
 //TODO: fix textures, load data for info
 class screenElement
@@ -9,9 +10,10 @@ public:
 	GUIStyle style;
 	void setStyle(GUIStyle& style);
 
+	
 	void drawExitText(sf::RenderWindow &App);
 	void drawNextButton(sf::RenderWindow &App);
-	void drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape titleBar, int numBar);
+	void drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape titleBar, int numBar, int, int);
 	void drawInfoBar(sf::RenderWindow &window, sf::Text TitleText, int numBar, std::string info);
 };
 
@@ -70,8 +72,9 @@ void screenElement::drawNextButton(sf::RenderWindow &window) {
 	window.draw(nextText1);
 	window.draw(nextText2);
 }
-void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape titleBar, int numBar) {
+void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape titleBar,int numBar, int numHost, int typeHost ) {
 	
+	Hostile h (typeHost);
 	WINDOWINFO wiInfo;
 	GetWindowInfo(window.getSystemHandle(), &wiInfo);
 	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
@@ -86,11 +89,9 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 	enemyBar.setOutlineColor(style.borderCol);
 	enemyBar.setPosition(enemyBar.getOutlineThickness(), (titleBar.getPosition().y + titleHeight+enemyBarHeight*numBar));
 
-	std::string enemyName = "Enemy One Name";
+	std::string enemyName = "Hostile Type "+std::to_string(typeHost);
 
-	int numEnemies = 10;
-
-	sf::Text enemyBarText1(std::to_string(numEnemies) + "x ", style.font, 50);
+	sf::Text enemyBarText1(std::to_string(numHost) + "x ", style.font, 50);
 	enemyBarText1.setFillColor(style.textCol);
 	enemyBarText1.setPosition(enemyBar.getPosition().x + 10,
 		enemyBar.getPosition().y + enemyBarHeight / 2 - enemyBarText1.getLocalBounds().height / 2 - 15);
@@ -108,7 +109,7 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 
 	sf::Text enemyNameLabel(enemyName, style.font, 30);
 	enemyNameLabel.setFillColor(style.textCol);
-	enemyNameLabel.setStyle(sf::Text::Underlined);
+	enemyNameLabel.setStyle(sf::Text::Bold);
 	enemyNameLabel.setPosition(enemyBar.getPosition().x + enemyBar.getLocalBounds().width / 2 - enemyNameLabel.getLocalBounds().width / 2,
 		(enemyBar.getPosition().y - 3));
 

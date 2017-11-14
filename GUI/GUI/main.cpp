@@ -7,6 +7,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "screens.h"
+#include "Player.h"
 
 /*main.cpp
 	initializes the universal GUI style, including loading the font from file
@@ -18,6 +19,14 @@
 
 int main(int argc, char** argv)
 {
+	//make player object
+	string playerName = "George";
+	int playerHP = 1;
+	int playerCurrency = 10;
+	Player *user= new Player (playerName,playerHP,playerCurrency);
+	// make tower manager
+	TowerManager *towerMan = new TowerManager();
+
 	//declaring all of the GUIStyle elements
 	sf::Font font;
 	sf::Color bodycol(0, 0, 0);
@@ -42,22 +51,26 @@ int main(int argc, char** argv)
 	sf::RenderWindow window(sf::VideoMode(1000, 700), "Game Prototype");
 
 	//Screens preparations
-	MainMenu s0(style); //main menu page
-	Screens.push_back(&s0);
-	WaveDescription s1(style); //wave description page
-	Screens.push_back(&s1);
-	BuySellPage s2(style, spriteSheet); //where user buys, sells, and places towers
-	Screens.push_back(&s2);
-	WaveRunningPage s3(style, spriteSheet); //wave runs
-	Screens.push_back(&s3);
-	WaveComplete s4(style); //wave complete
-	Screens.push_back(&s4);
+	
+	WaveDescription *s1 = new WaveDescription(style);//wave description page
+	BuySellPage s2(style, spriteSheet, towerMan); //where user buys, sells, and places towers
+	WaveRunningPage s3(style, spriteSheet, user, towerMan); //wave runs
+	WaveComplete *s4 = new WaveComplete(style);//wave complete page
 	LevelComplete s5(style); //level complete
-	Screens.push_back(&s5);
 	WinnerPage s6(style); //winner page
-	Screens.push_back(&s6);
 	GameOverPage s7(style); //game over page
+	MainMenu s0(style, towerMan, s1, s4, user); //main menu page
+
+	//load all pages into vector
+	Screens.push_back(&s0);
+	Screens.push_back(&*(s1));
+	Screens.push_back(&s2);
+	Screens.push_back(&s3);
+	Screens.push_back(&*(s4));
+	Screens.push_back(&s5);
+	Screens.push_back(&s6);
 	Screens.push_back(&s7);
+
 
 
 	//Main loop

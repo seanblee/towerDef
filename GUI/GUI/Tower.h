@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "stdafx.h"
 class Tower {
 private:
 
@@ -14,6 +14,10 @@ private:
 
 public:
 
+	Tower(sf::Sprite img) {
+		towerImage = img;
+	}
+
 	int getX() {
 		return x;
 	}
@@ -21,6 +25,9 @@ public:
 		return y;
 	}
 
+	sf::Sprite getSprite() {
+		return towerImage;
+	}
+
 
 };
-

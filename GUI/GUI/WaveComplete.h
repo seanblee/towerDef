@@ -4,23 +4,34 @@
 #include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include "screenElement.h"
+//displays statistics for wave just completed
+//todo: base statistics off of info from other classes, 
 class WaveComplete : public cScreen
 {
+	int numWave = 0;//numWave on
 public:
+	//to reset wave on when restarting game
+	void resetScreen() {
+		numWave = 0;
+	}
 	WaveComplete(GUIStyle& style) : cScreen(style) {}
 	virtual int Run(sf::RenderWindow &window);
 };
 int WaveComplete::Run(sf::RenderWindow &window) {
+	//make wave object for current wave
+	numWave++;
+	Wave wave(numWave);
 
-	GUIStyle style(getStyle());
+	GUIStyle style(getStyle());//load style
 
+	//for positioning
 	WINDOWINFO wiInfo;
 	GetWindowInfo(window.getSystemHandle(), &wiInfo);
 	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
 	int heightWin = wiInfo.rcClient.bottom - wiInfo.rcClient.top;
 	
 
-
+	//add title
 	sf::Text TitleText("Wave Complete", style.font, 70);
 	TitleText.setFillColor(style.textCol);
 	TitleText.setStyle(sf::Text::Underlined);
@@ -36,6 +47,7 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed) {
+				//close and stop program
 				window.close();
 				return -1;
 			}
@@ -43,27 +55,39 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 			{
 				if (event.key.code == sf::Keyboard::X)
 				{
+					//close and stop program
 					window.close();
 					return -1;
 				}
+				if (event.key.code == sf::Keyboard::Return&&wave.getWaveNumber()==3)
+				{
+					//player just won the game
+					return 6;
+				}
 				if (event.key.code == sf::Keyboard::Return)
 				{
-					//return value should be variable
-					return 5;
+					//move to description page for next wave
+					return 1;
 				}
 			}
 			window.clear(style.bodyCol);
+			//write title
+			window.draw(TitleText);
+
+			// add (x) to exit and next label
 			screenElement addElement;
 			addElement.setStyle(style);
 			addElement.drawExitText(window);
 			addElement.drawNextButton(window);
-			int numEnemiesKilled = 100;
+
+			//write the info to be displayed
+			int numEnemiesKilled = 100;//this
 			addElement.drawInfoBar(window,TitleText,0, std::to_string(numEnemiesKilled) +" :Hostiles Eliminated");
-			int playerHealthLost = 10;
+			int playerHealthLost = 10;//this
 			addElement.drawInfoBar(window, TitleText, 1, std::to_string(playerHealthLost) + " :HP Lost");
-			int currencyGained = 100;
+			int currencyGained = 100;//and this need to change to real info
 			addElement.drawInfoBar(window, TitleText, 2, std::to_string(currencyGained) + " :Currency Gained");
-			window.draw(TitleText);
+			
 			window.display();
 		}
 
