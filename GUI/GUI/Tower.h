@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
-#include "BuySell.h"
+#include "Cursor.h"
 class Tower {
 private:
 
@@ -16,7 +16,7 @@ private:
 
 public:
 
-	Tower(int type, buySell overlay);
+	Tower(int type, cursor cur);
 
 	int getX() {
 		return x;

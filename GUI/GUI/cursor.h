@@ -19,6 +19,8 @@ public:
 	int getX();
 	int getY();
 
+	sf::Sprite getImage() { return cursorImage; };
+
 	
 };
 
