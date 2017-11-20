@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 #include "Cursor.h"
+#include <SFML/System/Vector2.hpp>
+
 
 class Tower {
 private:
@@ -17,9 +19,9 @@ private:
 public:
 
 	Tower(int type, cursor cur);
-	void fireTo(vector<int>);
+	void fireTo(sf::Vector2f);
 
-	vector<int> getPos() {
+	sf::Vector2f getPos() {
 		return towerImage.getPosition;
 	}
 

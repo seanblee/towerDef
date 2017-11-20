@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics.hpp>
 
 using namespace std;
@@ -11,6 +12,6 @@ private:
 public:
 	
 	Projectile(int, int);
-	void travelFromTo(vector<int>, vector<int>);
+	void travelFromTo(sf::Vector2f, sf::Vector2f);
 };
 

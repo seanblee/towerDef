@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Cursor.h"
 #include "Projectile.h"
+#include <SFML/System/Vector2.hpp>
 
 using namespace std;
 
@@ -27,6 +28,7 @@ Tower::Tower(int type, cursor cur) {
 	towerImage = cur.getImage();
 }
 
-void Tower::fireTo(vector<int> location) {
-	Projectile bullet;
+void Tower::fireTo(sf::Vector2f location) {
+	Projectile bullet(damage, radius);
+	bullet.travelFromTo(getPos(), location);
 }
