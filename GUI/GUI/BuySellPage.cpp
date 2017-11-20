@@ -140,9 +140,8 @@ int BuySellPage::Run(sf::RenderWindow &window)
 						break;
 					}
 					intMap[cur.getX()][cur.getY()] = tower;
-					sf::Sprite newTowerSprite(cur.cursorImage);
-					Tower newTower(selected, cur);
-					BuySellManager.addTower(newTower);
+
+					BuySellManager.addTower(1, cur);
 					overlays.setMessage(userMessage[(tower*2) + 4]);
 					overlays.setOptions(userMessage[(tower * 2) + 5]);
 

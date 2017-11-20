@@ -8,8 +8,5 @@
 using namespace std;
 
 Tower::Tower(int type, cursor cur) {
-	towerType = type;
 	towerImage = cur.getImage();
-	fstream towerStat;
-	towerStat.open("statSheet.txt");
 }
