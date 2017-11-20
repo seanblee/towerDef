@@ -12,7 +12,7 @@ private:
 
 public:
 
-	TowerManager() {};
+	TowerManager();
 	void addTower(int, cursor);
 	void drawTowers(sf::RenderWindow &);
 	int getCost(int);

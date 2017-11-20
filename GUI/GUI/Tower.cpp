@@ -1,7 +1,7 @@
 #pragma once
+#include "stdafx.h"
 #include "Tower.h"
 #include <SFML/Graphics.hpp>
-#include "stdafx.h"
 #include <fstream>
 #include "Cursor.h"
 

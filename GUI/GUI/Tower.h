@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 #include "Cursor.h"
+
 class Tower {
 private:
 
