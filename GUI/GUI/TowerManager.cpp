@@ -19,7 +19,6 @@ TowerManager::TowerManager() {
 void TowerManager::addTower(int type, cursor cur) {
 	Tower newTower(type, cur);
 	towersBought.push_back(newTower);
-
 }
 
 void TowerManager::drawTowers(sf::RenderWindow &window) {
