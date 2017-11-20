@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 	//Screens preparations
 	
 	WaveDescription *s1 = new WaveDescription(style);//wave description page
-	BuySellPage s2(style, spriteSheet, towerMan); //where user buys, sells, and places towers
+	BuySellPage s2(style, spriteSheet, user, towerMan); //where user buys, sells, and places towers
 	WaveRunningPage s3(style, spriteSheet, user, towerMan); //wave runs
 	WaveComplete *s4 = new WaveComplete(style);//wave complete page
 	LevelComplete s5(style); //level complete

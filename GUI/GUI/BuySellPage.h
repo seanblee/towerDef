@@ -23,9 +23,10 @@ class BuySellPage : public cScreen
 	int tower; //tower number; 0 is nothing, a blank cursor
 	int state; //0 = selection, 1 = buy,  2 = sell
 	TowerManager *BuySellManager;
+	Player* user;
 
 public:
-	BuySellPage(GUIStyle& style, sf::Texture sheet, TowerManager*& tempMan) : cScreen(style), spriteSheet(sheet) { BuySellManager = tempMan; }
+	BuySellPage(GUIStyle& style, sf::Texture sheet, Player* play, TowerManager*& tempMan) : cScreen(style), spriteSheet(sheet), user(play) { BuySellManager = tempMan; }
 	virtual int Run(sf::RenderWindow &window);
 
 	int getTowerNum(); //get the currently selected tower number

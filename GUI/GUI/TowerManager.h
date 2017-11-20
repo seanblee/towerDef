@@ -5,13 +5,16 @@
 using namespace std;
 class TowerManager {
 private:
-
+	vector<int> towerPrice;
 	vector<Tower> towersBought;
 
 public:
 
 	TowerManager() {};
 
+	//add function to initialize tower prices
+
+	
 	void addTower(Tower towerObj) {
 		towersBought.push_back(towerObj);
 	}
@@ -22,6 +25,10 @@ public:
 	}
 	void clearAllTowers(){
 		towersBought.clear();
+	}
+
+	int getPrice(int tower) {
+		return towerPrice.at(tower - 1);
 	}
 };
 
