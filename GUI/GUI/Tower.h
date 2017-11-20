@@ -7,8 +7,7 @@ class Tower {
 private:
 
 	sf::Sprite towerImage;
-	int x;
-	int y;
+	vector<int> position;
 	int towerType;
 	int damage;
 	int attackSpeed;
@@ -18,19 +17,20 @@ private:
 public:
 
 	Tower(int type, cursor cur);
+	void fireTo(vector<int>);
 
-	int getX() {
-		return x;
+	vector<int> getPos() {
+		return towerImage.getPosition;
 	}
-	int getY() {
-		return y;
-	}
+
 	int getCost() {
 		return cost;
 	}
 	sf::Sprite getSprite() {
 		return towerImage;
 	}
+
+	
 
 
 };
