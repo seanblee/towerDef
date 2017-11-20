@@ -9,9 +9,10 @@
 class GameOverPage : public cScreen
 {
 
+	Player *user;
 public:
 
-	GameOverPage(GUIStyle& style) : cScreen(style) { }
+	GameOverPage(GUIStyle& style, Player*& p) : cScreen(style) { user = p; }
 	virtual int Run(sf::RenderWindow &window);
 };
 int GameOverPage::Run(sf::RenderWindow &window)
@@ -77,9 +78,9 @@ int GameOverPage::Run(sf::RenderWindow &window)
 			addElement.drawNextButton(window);
 
 			// info text of end of game statistic when user loses
-			int enemiesEliminated = 100;//change this
+			int enemiesEliminated = 100;//change this to real info
 			addElement.drawInfoBar(window, TitleText1, 0, std::to_string(enemiesEliminated)+" :total Enemies Eliminated");
-			int currLeft = 1;// and this to real values
+			int currLeft = user->getMoney();
 			addElement.drawInfoBar(window, TitleText1, 1, std::to_string(currLeft) + " :Currency Remaining");
 			
 			

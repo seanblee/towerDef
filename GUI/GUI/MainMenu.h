@@ -24,7 +24,7 @@ public:
 		descriptionPage->resetScreen();
 		waveCompPage->resetScreen();
 		user->setHP(1);
-		user->setMoney(10);
+		user->setMoney(200);
 	}
 	MainMenu(GUIStyle& style, TowerManager*& tempMan, WaveDescription*& s1, WaveComplete*& s4, Player*& p) : cScreen(style) {
 		towerMan = tempMan;

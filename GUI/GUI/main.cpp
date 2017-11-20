@@ -21,9 +21,11 @@ int main(int argc, char** argv)
 {
 	//make player object
 	string playerName = "George";
+
 	int playerHP = 1;
-	int playerCurrency = 10;
+	int playerCurrency = 200;
 	Player *user= new Player (playerName,playerHP,playerCurrency);
+	user->startHP = user->getHP();
 	// make tower manager
 	TowerManager *towerMan = new TowerManager();
 
@@ -53,12 +55,12 @@ int main(int argc, char** argv)
 	//Screens preparations
 	
 	WaveDescription *s1 = new WaveDescription(style);//wave description page
-	BuySellPage s2(style, spriteSheet, user, towerMan); //where user buys, sells, and places towers
+	BuySellPage s2(style, spriteSheet, towerMan, user); //where user buys, sells, and places towers
 	WaveRunningPage s3(style, spriteSheet, user, towerMan); //wave runs
-	WaveComplete *s4 = new WaveComplete(style);//wave complete page
+	WaveComplete *s4 = new WaveComplete(style, user);//wave complete page
 	LevelComplete s5(style); //level complete
-	WinnerPage s6(style); //winner page
-	GameOverPage s7(style); //game over page
+	WinnerPage s6(style, user); //winner page
+	GameOverPage s7(style,user); //game over page
 	MainMenu s0(style, towerMan, s1, s4, user); //main menu page
 
 	//load all pages into vector

@@ -10,6 +10,9 @@ private:
 	int money;
 	string name;
 public:
+    int startHP =1;
+	int HPstartLastWave = 0;
+	int moneyStartLastWave = 0;
 	Player(string, int, int);
 	Player() {
 		name = "null";

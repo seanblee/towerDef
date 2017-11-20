@@ -1,5 +1,5 @@
 #pragma once
-
+#pragma once
 #include <iostream>
 #include <string>
 #include "cScreen.h"
@@ -39,6 +39,11 @@ class WaveRunningPage : public cScreen
 	Player *user;
 	TowerManager *towerMan;
 	Hostile hostile;//temporary need hostile manager
+
+	bool moveRight=true;
+	bool moveLeft=false;
+	bool moveUp=false;
+	bool moveDown=false;
 public:
 	WaveRunningPage(GUIStyle& style, sf::Texture Sheet, Player*& p, TowerManager*& tempMan) : cScreen(style) { 
 		spriteSheet = Sheet; 
@@ -51,18 +56,20 @@ public:
 	void spawnHostile(Hostile h);
 	int moveHostile(Hostile h,int x, int y);//returns -1 if move illegal and doesn't move, 0 if not
 	bool checkHostileEndOfPath(Hostile h);
+	bool shouldMoveHostRight(Hostile h);
+	bool shouldMoveHostUp(Hostile h);
 	void removeHostile(Hostile h);
 	bool checkHostileMove(Hostile h, int x, int y);
 	
 };
-
-
 
 int WaveRunningPage::Run(sf::RenderWindow &window)
 {
 	Hostile h;
 	h.type = 3;
 	hostile.numHostLeft = 2;//this will reset number of hostiles for each wave
+	user->HPstartLastWave = user->getHP();
+	user->moneyStartLastWave = user->getMoney();
 
 
 	//initialize GUI style
@@ -119,20 +126,83 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				{
 					
 					if (hostilesOnScreen.size() != 0) {
-						int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x + 5,
-							hostilesOnScreen[0].sprite.getPosition().y);
-						if (good != 0) {
-							good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x,
-								hostilesOnScreen[0].sprite.getPosition().y - 5);
-							if (good != 0) {
-								good = 0;
-								while (good == 0) {
-									good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x,
-										hostilesOnScreen[0].sprite.getPosition().y + 5);
-
+						if (moveRight) {
+							int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x + 5,
+								hostilesOnScreen[0].sprite.getPosition().y);//move right
+							if (good != 0) {//can't move any further right or off path
+								//move hostile up or down
+								if (shouldMoveHostUp(hostilesOnScreen[0])) {
+									moveRight = false;
+									moveLeft = false;
+									moveUp = true;
+									moveDown = false;
+								}
+								else {
+									moveRight = false;
+									moveLeft = false;
+									moveUp = false;
+									moveDown = true;
 								}
 							}
 						}
+						if (moveLeft) {
+							int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x - 5,
+								hostilesOnScreen[0].sprite.getPosition().y);//move right
+							if (good != 0) {//can't move any further left or off path
+											//move hostile up or down
+								if (shouldMoveHostUp(hostilesOnScreen[0])) {
+									moveRight = false;
+									moveLeft = false;
+									moveUp = true;
+									moveDown = false;
+								}
+								else {
+									moveRight = false;
+									moveLeft = false;
+									moveUp = false;
+									moveDown = true;
+								}
+							}
+						}
+						if (moveUp) {
+							int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x,
+								hostilesOnScreen[0].sprite.getPosition().y-5);//move right
+							if (good != 0) {//can't move any further up or off path
+											//move hostile right or left
+								if (shouldMoveHostRight(hostilesOnScreen[0])) {
+									moveRight = true;
+									moveLeft = false;
+									moveUp = false;
+									moveDown = false;
+								}
+								else {
+									moveRight = false;
+									moveLeft = true;
+									moveUp = false;
+									moveDown = false;
+								}
+							}
+						}
+						if (moveDown) {
+							int good = moveHostile(hostilesOnScreen[0], hostilesOnScreen[0].sprite.getPosition().x ,
+								hostilesOnScreen[0].sprite.getPosition().y+5);//move right
+							if (good != 0) {//can't move any further down or off path
+											//move hostile right or left
+								if (shouldMoveHostRight(hostilesOnScreen[0])) {
+									moveRight = true;
+									moveLeft = false;
+									moveUp = false;
+									moveDown = false;
+								}
+								else {
+									moveRight = false;
+									moveLeft = true;
+									moveUp = false;
+									moveDown = false;
+								}
+							}
+						}
+						
 						if(checkHostileEndOfPath(hostilesOnScreen[0])) {
 							removeHostile(hostilesOnScreen[0]);
 						}
@@ -151,12 +221,19 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 		
 			window.clear();
 			window.draw(easyPath.pathImage);
+
+			//set HP and money text to HP and money of player
+			overlays.setHP(user->getHP());
+			overlays.setMoney(user->getMoney());
+
+			//draw overlays
 			window.draw(overlays.backing);
 			window.draw(overlays.getHP());
 			window.draw(overlays.getMoney());
 			window.draw(overlays.getMessage());
-			towerMan->drawTowers(window);
 
+
+			towerMan->drawTowers(window);
 			//draw all hostiles to screen
 			for (int col = 0; col < hostilesOnScreen.size(); col++) {
 				window.draw(hostilesOnScreen[col].sprite);
@@ -241,6 +318,59 @@ bool WaveRunningPage::checkHostileMove(Hostile h, int x, int y) {
 	}
 	return true;
 }
+//checks whether going right or going left is most likely the correct way to follow path
+//for a given hostile. (Works by finding if we will hit a wall moving right before we hit one going left)
+bool WaveRunningPage::shouldMoveHostRight(Hostile h) {
+	//get quadrant hostile is in
+	int quadX = ((h.sprite.getPosition().x) / 50);
+	int quadY = ((h.sprite.getPosition().y) / 50);
+	//variables that will be used to get the quadrants to the left or right of current quadrant
+	int leftQuad = quadX;
+	int rightQuad = quadX;
+
+	//if either the quadrant to the left or the quadrant to the right is still on the path, check next quadrant
+	while ((intMap[leftQuad][quadY] == -1)|| (intMap[rightQuad][quadY] == -1)) {
+		//if the quadrant to the left is still on the path move to next most left quadrant
+		if (leftQuad>=0 && (intMap[leftQuad][quadY] == -1)) {
+			leftQuad--;
+		}
+		//if the quadrant to the right is still on the path move to next most right quadrant
+		if (rightQuad <= 50&& (intMap[rightQuad][quadY] == -1)) {
+			rightQuad++;
+		}
+	}
+	// is the path to the left or the one to the right longer, should follow longer one
+	if ((rightQuad-quadX)>(quadX-leftQuad)) {
+		return true;
+	}
+	return false;
+}
+// checks whether going up or going down is most likely the correct way to follow path
+//for a given hostile. (Works by finding if we will hit a moving up before we hit one going down)
+bool WaveRunningPage::shouldMoveHostUp(Hostile h) {
+	//get quadrant hostile is in
+	int quadX = (h.sprite.getPosition().x / 50);
+	int quadY = (h.sprite.getPosition().y / 50);
+	//variables that will be used to itterate through the quadrants to above or below of current quadrant
+	int upQuad = quadY;
+	int downQuad = quadY;
+	//if either the quadrant to above or below the quadrant is still on the path, check next quadrant
+	while ((intMap[quadX][upQuad] == -1) || (intMap[quadX][downQuad] == -1)) {
+		//if the quadrant to above is still on the path move to next quadrant above this
+		if (upQuad >= 0 &&(intMap[quadX][upQuad] == -1)) {
+			upQuad--;
+		}
+		//if the quadrant to below is still on the path move to next quadrant below this
+		if (downQuad <= 50&& (intMap[quadX][downQuad] == -1)) {
+			downQuad++;
+		}
+	}
+	// is the path to above or the below path longer, should follow longer one
+	if ((downQuad-quadY)>(quadY-upQuad)) {
+		return false;
+	}
+	return true;
+}
 
 //moves hostile if it can move without going off path, if can move returns 0, else returns -1
 int WaveRunningPage::moveHostile(Hostile h, int x, int y) {
@@ -264,16 +394,18 @@ void WaveRunningPage::removeHostile(Hostile h) {
 
 	hostilesOnScreen.erase(hostilesOnScreen.end()-1);
 	hostile.numHostLeft--;
+	user->setMoney(user->getMoney() + 10);//money increase whenenemy killed
 }
 
 //returns true if hostile at end of path else returns false
 bool WaveRunningPage::checkHostileEndOfPath(Hostile h) {
 	if (h.sprite.getPosition().x >= 990) {//if end on right this would mean the hostile is moving off screen at end of path
-		user->setHP(user->getHP()-1);						//and needs to be removed
+		user->setHP(user->getHP()-1);	//and needs to be removed
+		user->setMoney(user->getMoney() - 10);//money goes down then back up to starting point if enemy makes it through
+		//j.incNumEscaped()
 		return true;
 	}
-	return false;
 	
-
-}
-
+	
+	return false;
+} 

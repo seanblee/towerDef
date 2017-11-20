@@ -8,13 +8,14 @@
 //todo: base statistics off of info from other classes, 
 class WaveComplete : public cScreen
 {
-	int numWave = 0;//numWave on
+	int numWave = 0;
 public:
+	Player *user;
 	//to reset wave on when restarting game
 	void resetScreen() {
 		numWave = 0;
 	}
-	WaveComplete(GUIStyle& style) : cScreen(style) {}
+	WaveComplete(GUIStyle& style, Player*& p) : cScreen(style) { user = p; }
 	virtual int Run(sf::RenderWindow &window);
 };
 int WaveComplete::Run(sf::RenderWindow &window) {
@@ -81,11 +82,11 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 			addElement.drawNextButton(window);
 
 			//write the info to be displayed
-			int numEnemiesKilled = 100;//this
+			int numEnemiesKilled = 100;//change to real info
 			addElement.drawInfoBar(window,TitleText,0, std::to_string(numEnemiesKilled) +" :Hostiles Eliminated");
-			int playerHealthLost = 10;//this
+			int playerHealthLost = user->HPstartLastWave-user->getHP();
 			addElement.drawInfoBar(window, TitleText, 1, std::to_string(playerHealthLost) + " :HP Lost");
-			int currencyGained = 100;//and this need to change to real info
+			int currencyGained = user->getMoney()-user->moneyStartLastWave;
 			addElement.drawInfoBar(window, TitleText, 2, std::to_string(currencyGained) + " :Currency Gained");
 			
 			window.display();

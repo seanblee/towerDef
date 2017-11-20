@@ -11,9 +11,9 @@
 //todo: make statistic based off of outside data
 class WinnerPage : public cScreen
 {
-
+	Player *user;
 public:
-	WinnerPage(GUIStyle& style) : cScreen(style) {}
+	WinnerPage(GUIStyle& style, Player*& p) : cScreen(style) { user = p; }
 
 	virtual int Run(sf::RenderWindow &window);
 };
@@ -80,12 +80,12 @@ int WinnerPage::Run(sf::RenderWindow &window) {
 			addElement.drawNextButton(window);
 
 			//draw text with info about game
-			int numEnemiesKilled = 100;//change this
+			int numEnemiesKilled = 100;//change this to real info
 			addElement.drawInfoBar(window, TitleText, 0, std::to_string(numEnemiesKilled) + " :Total Hostiles Eliminated");
-			int playerHealthLost = 10;//this
+			int playerHealthLost = user->getHP();
 			addElement.drawInfoBar(window, TitleText, 1, std::to_string(playerHealthLost) + " :Extra Hp");
-			int currencyGained = 100;// and this to real values
-			addElement.drawInfoBar(window, TitleText, 2, std::to_string(currencyGained) + " :Currency Remaining");
+			int currencyRemaining = user->getMoney();
+			addElement.drawInfoBar(window, TitleText, 2, std::to_string(currencyRemaining) + " :Currency Remaining");
 			
 			window.display();
 		}
