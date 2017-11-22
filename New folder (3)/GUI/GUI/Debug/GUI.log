@@ -1,0 +1,32 @@
+﻿  main.cpp
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(82): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(103): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\screenelement.h(132): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\wavedescription.h(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\wavedescription.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\hostile.h(172): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\hostile.h(173): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\hostile.h(177): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\hostile.h(178): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(161): warning C4018: '<': signed/unsigned mismatch
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(164): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(168): warning C4018: '<': signed/unsigned mismatch
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(234): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(237): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(284): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\mainmenu.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\mainmenu.h(61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\wavedescription.h(106): warning C4715: 'WaveDescription::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\wavecomplete.h(99): warning C4715: 'WaveComplete::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\waverunningpage.h(199): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\levelcomplete.h(75): warning C4715: 'LevelComplete::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\winnerpage.h(95): warning C4715: 'WinnerPage::Run': not all control paths return a value
+c:\users\kaitlynn\desktop\new folder (3)\gui\gui\gameoverpage.h(94): warning C4715: 'GameOverPage::Run': not all control paths return a value
+  GUI.vcxproj -> C:\Users\Kaitlynn\Desktop\New folder (3)\GUI\Debug\GUI.exe
