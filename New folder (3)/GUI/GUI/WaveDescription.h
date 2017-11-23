@@ -3,7 +3,6 @@
 #include <string>
 #include "cScreen.h"
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include "Wave.h"
 

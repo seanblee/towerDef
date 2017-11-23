@@ -13,6 +13,7 @@ class Hostile
 {
 public:
 	sf::Sprite sprite;
+	Hostile();
 	Hostile(int id);
 	int idNum;
 	int getTotalHealth();
@@ -37,6 +38,9 @@ private:
 	std::vector <int> Position; // current position
 	//int startPos; // 1 = lower track, 2 = upper track
 };
+
+Hostile::Hostile(){}
+
 std::vector<int> Hostile::getNextPos()
 {
 	std::vector<int>pos = getPosition();
@@ -47,18 +51,18 @@ std::vector<int> Hostile::getNextPos()
 	nextPos.push_back(1);
 
 	// FOR HOSTILES STARTING AT startPos == 1
-	int LOCATION1 = 300; //the x-location of the first upwards turn
-	int LOCATION2 = 200; //the y-location of the first turn to the horizontal
-	int LOCATION3 = 650; //the x-location of the first downwards turn
-	int LOCATION4 = 650; //the x-location of the second turn to the horizontal
-	int LOCATION5 = 500; //the y-location of the upward turns
+	int LOCATION1 = 310; //the x-location of the first upwards turn
+	int LOCATION2 = 210; //the y-location of the first turn to the horizontal
+	int LOCATION3 = 660; //the x-location of the first downwards turn
+	int LOCATION4 = 660;//the x-location of the second turn to the horizontal
+	int LOCATION5 = 510; //the y-location of the upward turns
 
 				  // FOR HOSTILES STARTING AT startPos == 2
-	int LOCATION6 = 250; //the x-location of the first upwards turn
-	int LOCATION7 = 150; //the y-location of the first turn towards the horizontal
-	int LOCATION8 = 650; //the x-location of the first downwards turn
-	int LOCATION9 = 650; //the x-location of the xecond turn to the horizontal
-	int LOCATION10 = 500; //the y-location of the upwards turn
+	int LOCATION6 = 255; //the x-location of the first upwards turn
+	int LOCATION7 = 155; //the y-location of the first turn towards the horizontal
+	int LOCATION8 = 705; //the x-location of the first downwards turn
+	int LOCATION9 = 705; //the x-location of the xecond turn to the horizontal
+	int LOCATION10 = 455; //the y-location of the upwards turn
 
 	if (startPos == 1)
 	{
@@ -80,20 +84,20 @@ std::vector<int> Hostile::getNextPos()
 	}
 	else
 	{
-		if (locx < LOCATION6 || (locx == LOCATION1 && locy == LOCATION7) || (locx < LOCATION8 && locx > LOCATION1) || (locx > LOCATION9))
+		if (locx < LOCATION6 || (locx == LOCATION6 && locy == LOCATION7) || (locx < LOCATION8 && locx > LOCATION6) || (locx > LOCATION9) || (locy == LOCATION10&&locx >= LOCATION9))
 		{
 			nextPos[0] = locx + 1;
 			nextPos[1] = locy;
 		}
-		else if (locx == LOCATION1 && locy < LOCATION7) // if the x-position is on the first upwards part of the track
-		{
-			nextPos[0] = locx;
-			nextPos[1] = locy + 1;
-		}
-		else if (locx == LOCATION8 && locy > LOCATION10)
+		else if (locx == LOCATION6 && locy > LOCATION7) // if the x-position is on the first upwards part of the track
 		{
 			nextPos[0] = locx;
 			nextPos[1] = locy - 1;
+		}
+		else if (locx == LOCATION8 && locy < LOCATION10)
+		{
+			nextPos[0] = locx;
+			nextPos[1] = locy + 1;
 		}
 	}
 	

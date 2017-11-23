@@ -2,10 +2,8 @@
 //
 
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "screens.h"
 #include "Player.h"
 //#include "HostileManager.h"

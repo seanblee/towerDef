@@ -1,7 +1,6 @@
 #pragma once
 #include "cScreen.h"
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include "screenElement.h"
 #include "HostileManager.h"

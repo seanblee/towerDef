@@ -73,6 +73,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 {
 	numWave++;
 	Wave wave(numWave);
+	srand(time(NULL));
 
 	numHostilesLeftToSpawn=wave.getHostileAmount();
 
@@ -130,7 +131,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 
 		sf::Time elapsed1 = clock.getElapsedTime();
 				if (elapsed1.asSeconds()>=1&&numHostilesLeftToSpawn>0) {
-					Hostile h(1);
+					Hostile h(2);
 					spawnHostile(h);
 					hostMan->spawn(h);
 					clock.restart();
@@ -231,13 +232,18 @@ void WaveRunningPage::spawnHostile(Hostile h) {
 	}
 
 	//randomly pick which square at beginning of path to use
-	srand(time(NULL));
-	int beginning = rand() % beginningTiles.size();
-	h.startPos = 1;
+	
+	int beginning = rand() % 2;
+	h.startPos = 2;
 	h.sprite.setPosition(-35, (beginningTiles[beginning])*squareWidth + 5);
 	h.setPosition();
 	h.sprite.scale(1.5f, 1.5f);
-	h.sprite.setColor((sf::Color(255, 0, 0)));
+	if (h.type == 1)
+		h.sprite.setColor((sf::Color(0, 125, 125)));
+	else if (h.type == 2)
+		h.sprite.setColor((sf::Color(0, 200, 125)));
+	else if (h.type == 3)
+		h.sprite.setColor((sf::Color(0, 200, 200)));
 	//add hostile to vector of those to draw
 	hostilesOnScreen.push_back(h);
 	h.idNum = hostilesOnScreen.size() - 1;
