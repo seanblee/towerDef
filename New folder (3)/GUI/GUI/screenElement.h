@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
+#include "Hostile.h"
 
 //class draws stuff for info pages that is drawn alot
 //TODO: fix textures, load data for info
@@ -74,7 +75,22 @@ void screenElement::drawNextButton(sf::RenderWindow &window) {
 }
 void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape titleBar,int numBar, int numHost, int typeHost ) {
 	
-//	Hostile h (typeHost);
+	//load sprite sheet from file
+	sf::Texture spriteSheet;
+	if (!spriteSheet.loadFromFile("SpriteSheet.png")) {/*put in exception later*/ }
+
+	//load hostile sprite
+	Hostile h (typeHost);
+	h.sprite.setTexture(spriteSheet);
+	h.sprite.setTextureRect(sf::IntRect(25 * h.type, 0, 30, 30));
+
+	if (h.type == 1)
+		h.sprite.setColor((sf::Color(250, 0, 0)));
+	else if (h.type == 2)
+		h.sprite.setColor((sf::Color(250, 125, 0)));
+	else if (h.type == 3)
+		h.sprite.setColor((sf::Color(250, 250, 0)));
+	
 	WINDOWINFO wiInfo;
 	GetWindowInfo(window.getSystemHandle(), &wiInfo);
 	int widthWin = wiInfo.rcClient.right - wiInfo.rcClient.left;
@@ -95,17 +111,20 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 	enemyBarText1.setFillColor(style.textCol);
 	enemyBarText1.setPosition(enemyBar.getPosition().x + 10,
 		enemyBar.getPosition().y + enemyBarHeight / 2 - enemyBarText1.getLocalBounds().height / 2 - 15);
-	sf::Texture texture;
-	texture.loadFromFile("enemyTexture1.jpg");
+
 
 	int enemyImgWidth = 50;
 	int enemyImgHeight = 50;
 	sf::RectangleShape enemyImage(sf::Vector2f(enemyImgWidth, enemyImgHeight));
 	enemyImage.setOutlineThickness(style.borderSize);
 	enemyImage.setOutlineColor(style.borderCol);
-	enemyImage.setTexture(&texture);
+	enemyImage.setFillColor(style.bodyCol);
+	
 	enemyImage.setPosition(enemyBar.getPosition().x + enemyBarText1.getLocalBounds().width + 10,
-		enemyBar.getPosition().y + enemyBarHeight / 2 - enemyImage.getLocalBounds().height / 2);
+	enemyBar.getPosition().y + enemyBarHeight / 2 - enemyImage.getLocalBounds().height / 2);
+
+	h.sprite.setPosition(enemyBar.getPosition().x + enemyBarText1.getLocalBounds().width + 20,
+		enemyBar.getPosition().y + enemyBarHeight / 2 - enemyImage.getLocalBounds().height / 2 + 10);
 
 	sf::Text enemyNameLabel(enemyName, style.font, 30);
 	enemyNameLabel.setFillColor(style.textCol);
@@ -115,9 +134,9 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 
 	int enemyHealth = 10;
 	int enemySpeed = 10;
-	sf::Text enemyHP(" is " + std::to_string(enemyHealth), style.font, 25);
+	sf::Text enemyHP("HP is " + std::to_string(enemyHealth), style.font, 25);
 	enemyHP.setFillColor(style.textCol);
-	enemyHP.setPosition(enemyBar.getPosition().x + enemyBar.getLocalBounds().width / 2 - enemyHP.getLocalBounds().width - 20,
+	enemyHP.setPosition(enemyBar.getPosition().x + enemyBar.getLocalBounds().width / 2 - enemyHP.getLocalBounds().width - 30,
 		(enemyNameLabel.getPosition().y + enemyNameLabel.getLocalBounds().height + 10));
 
 	sf::Text enemySpeedLabel("Speed is " + std::to_string(enemySpeed), style.font, 25);
@@ -125,19 +144,13 @@ void screenElement::drawEnemyBar(sf::RenderWindow &window, sf::RectangleShape ti
 	enemySpeedLabel.setPosition(enemyBar.getPosition().x + enemyBar.getLocalBounds().width / 2 + 20,
 		(enemyNameLabel.getPosition().y + enemyNameLabel.getLocalBounds().height + 10));
 
-	sf::Texture pixelHeart;
-	pixelHeart.loadFromFile("PixelHeart.png");
-	sf::Sprite sprite;
-	sprite.setTexture(pixelHeart);
-	sprite.setScale(0.05, 0.05);
-	sprite.setPosition((enemyHP.getPosition().x - 20),
-		(enemyHP.getPosition().y + 5));
+	
 
 	window.draw(enemyBar);
 	window.draw(enemyBarText1);
 	window.draw(enemyImage);
+	window.draw(h.sprite);
 	window.draw(enemyNameLabel);
-	window.draw(sprite);
 	window.draw(enemyHP);
 	window.draw(enemySpeedLabel);
 }

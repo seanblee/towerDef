@@ -12,6 +12,7 @@
 class Hostile
 {
 public:
+
 	sf::Sprite sprite;
 	Hostile();
 	Hostile(int id);
@@ -51,18 +52,18 @@ std::vector<int> Hostile::getNextPos()
 	nextPos.push_back(1);
 
 	// FOR HOSTILES STARTING AT startPos == 1
-	int LOCATION1 = 310; //the x-location of the first upwards turn
-	int LOCATION2 = 210; //the y-location of the first turn to the horizontal
-	int LOCATION3 = 660; //the x-location of the first downwards turn
-	int LOCATION4 = 660;//the x-location of the second turn to the horizontal
-	int LOCATION5 = 510; //the y-location of the upward turns
+	int LOCATION1 = 307; //the x-location of the first upwards turn
+	int LOCATION2 = 206; //the y-location of the first turn to the horizontal
+	int LOCATION3 = 657; //the x-location of the first downwards turn
+	int LOCATION4 = 657;//the x-location of the second turn to the horizontal
+	int LOCATION5 = 504; //the y-location of the upward turns
 
 				  // FOR HOSTILES STARTING AT startPos == 2
-	int LOCATION6 = 255; //the x-location of the first upwards turn
-	int LOCATION7 = 155; //the y-location of the first turn towards the horizontal
-	int LOCATION8 = 705; //the x-location of the first downwards turn
-	int LOCATION9 = 705; //the x-location of the xecond turn to the horizontal
-	int LOCATION10 = 455; //the y-location of the upwards turn
+	int LOCATION6 = 256; //the x-location of the first upwards turn
+	int LOCATION7 = 157; //the y-location of the first turn towards the horizontal
+	int LOCATION8 = 706; //the x-location of the first downwards turn
+	int LOCATION9 = 706; //the x-location of the xecond turn to the horizontal
+	int LOCATION10 = 457; //the y-location of the upwards turn
 
 	if (startPos == 1)
 	{
@@ -112,6 +113,7 @@ Hostile::Hostile(int id)
 		MoveSpeed=1;
 		DamageTaken=0;
 		type=1;
+		
 	}
 	else if (id == 2)
 	{
@@ -120,6 +122,7 @@ Hostile::Hostile(int id)
 		MoveSpeed = 5;
 		DamageTaken = 0;
 		type = 2;
+		
 	}
 	else if (id == 3)
 	{
@@ -127,7 +130,9 @@ Hostile::Hostile(int id)
 		MoveSpeed = 10;
 		DamageTaken = 0;
 		type = 3;
+		
 	}
+
 	setPosition();
 
 }

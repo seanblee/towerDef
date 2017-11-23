@@ -96,7 +96,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	switchPage = false;
 	//remove all hostiles still on screen from last wave
 	hostilesOnScreen.clear();
-	Hostile h(1);
+	Hostile h(wave.getHostileType());
 	spawnHostile(h);
 	hostMan->spawn(h);
 	while (window.isOpen())
@@ -131,7 +131,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 
 		sf::Time elapsed1 = clock.getElapsedTime();
 				if (elapsed1.asSeconds()>=1&&numHostilesLeftToSpawn>0) {
-					Hostile h(2);
+					Hostile h(wave.getHostileType());
 					spawnHostile(h);
 					hostMan->spawn(h);
 					clock.restart();
@@ -181,7 +181,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 					nextPageInt = 7;
 				}
 
-				if (hostMan->isEveryoneDead()&& user->getHP() >0) {//go to waveComplete page
+				if (hostMan->isEveryoneDead()&& user->getHP() >0 && numHostilesLeftToSpawn == 0) {//go to waveComplete page
 					switchPage = true;
 					nextPageInt = 4;
 				}
@@ -233,17 +233,20 @@ void WaveRunningPage::spawnHostile(Hostile h) {
 
 	//randomly pick which square at beginning of path to use
 	
-	int beginning = rand() % 2;
-	h.startPos = 2;
-	h.sprite.setPosition(-35, (beginningTiles[beginning])*squareWidth + 5);
+	int beginning = (rand() % 2);
+	if (beginning == 0)
+		h.startPos = 1;
+	else if (beginning == 1)
+		h.startPos = 2;
+	h.sprite.setPosition(-35, (beginning + 9)*squareWidth + 5);
 	h.setPosition();
 	h.sprite.scale(1.5f, 1.5f);
 	if (h.type == 1)
-		h.sprite.setColor((sf::Color(0, 125, 125)));
+		h.sprite.setColor((sf::Color(250, 25, 40)));
 	else if (h.type == 2)
-		h.sprite.setColor((sf::Color(0, 200, 125)));
+		h.sprite.setColor((sf::Color(250, 125, 0)));
 	else if (h.type == 3)
-		h.sprite.setColor((sf::Color(0, 200, 200)));
+		h.sprite.setColor((sf::Color(250, 250, 0)));
 	//add hostile to vector of those to draw
 	hostilesOnScreen.push_back(h);
 	h.idNum = hostilesOnScreen.size() - 1;

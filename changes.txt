@@ -1,0 +1,13 @@
+CHANGES BY JOYCE NOV 23, 2017
+
+-fixed randomness logic in spawnHostile
+
+-adjusted offsets so hostiles move at centre of path
+
+-fixed WaveRunningPage to spawn hostiles according to Wave
+
+-added hostile textures to waveDescriptionPage
+
+-changed the tower and hostile colours for graphical clarity
+
+-adjusted some misc logic in waveRunningPage

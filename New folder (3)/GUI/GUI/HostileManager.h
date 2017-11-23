@@ -21,6 +21,7 @@ public:
 	void killHost(Hostile host);
 	int totalHostilesEliminated;
 	int hostileKilledLastWave;
+
 };
 using namespace std;
 
