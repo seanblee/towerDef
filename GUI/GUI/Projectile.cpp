@@ -2,22 +2,74 @@
 #include "stdafx.h"
 #include <SFML/Graphics.hpp>
 #include "Projectile.h"
-#include <SFML/System/Vector2.hpp>
+#include "Hostile.h"
+#include "HostileManager.h"
 
 using namespace std;
 
 Projectile::Projectile(int dmg, int rad) {
-	sf::Sprite bullet;
-	sf::Texture spriteSheet;
-	if (!spriteSheet.loadFromFile("SpriteSheet.png"))
-	bullet.setTexture(spriteSheet);
-	bullet.setTextureRect(sf::IntRect(0, 0, 5, 5));
-	sf::Color col(255, 255, 255);
-	bullet.setColor(col);
+	
 	damage = dmg;
 	range = rad;
 }
 
-void Projectile::travelFromTo(sf::Vector2f, sf::Vector2f) {
-	bullet.
+std::vector<int> Projectile::travelFromTo(vector<int> start, vector<int> end) 
+{
+	int dx = start[0] - end[0];
+	int dy = start[1] - end[1];
+	
+	double incx = MoveSpeed / dx;
+	double incy = MoveSpeed / dy;
+
+	double x_th = start[0];
+	double y_th = start[1];
+
+	int x_r = start[0];
+	int y_r = start[1];
+
+	for (int n = 0; n < sqrt(dx*dx + dy*dy)/MoveSpeed; n++)
+	{
+		x_th = x_th + incx;
+		y_th = y_th + incy;
+		
+		x_r = round(x_th);
+		y_r = round(y_th);		
+	}
 }
+
+int Projectile::findTarget()
+{
+	Hostile currHost = new Hostile;
+	int currPos = 0;
+	bool found = false;
+
+	for (int m = 0; m < hostilesAlive.length(); m++)
+	{
+		int xpos = hostilesAlive.at(m).getPosition()[0];
+		int ypos = hostilesAlive.at(m).getPosition()[1];
+
+		double dist = sqrt(xpos*xpos + ypos*ypos);
+
+		if (dist <= rad)
+		{
+			currHost = hostilesAlive.at(m);
+			curPoss = m;
+			found = true;
+		}
+	}
+
+	if (found == true)
+	{
+		return m;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+Hostile Projecile::selectTarget()
+{
+	return hostilesAlive.get(findTarget());
+}
+

@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -51,6 +50,7 @@ int BuySellPage::Run(sf::RenderWindow &window)
 	path easyPath(easyPathMap, 20, 14);
 
 	TowerManager BuySellManager;
+
 
 	fstream mapFile;
 	mapFile.open("Intmap.txt");

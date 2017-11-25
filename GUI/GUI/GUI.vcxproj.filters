@@ -75,6 +75,18 @@
     <ClInclude Include="Cursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="fakeHostile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> GUI
     <ClInclude Include="Tower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -110,7 +122,11 @@
     <ClCompile Include="BuySellPage.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Tower.cpp">
+=======
+    <ClCompile Include="Player.cpp">
+>>>>>>> GUI
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>

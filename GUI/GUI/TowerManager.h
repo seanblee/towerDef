@@ -2,19 +2,28 @@
 #include <SFML/Graphics.hpp>
 #include "Tower.h"
 
-
 using namespace std;
 class TowerManager {
 private:
 
 	vector<Tower> towersBought;
-	vector<int> costs;
 
 public:
 
-	TowerManager();
-	void addTower(int, cursor);
-	void drawTowers(sf::RenderWindow &);
-	int getCost(int);
+	TowerManager() {};
+	vector<Tower> getTowerVector() {
+		return towersBought;
+	}
+	void addTower(Tower towerObj) {
+		towersBought.push_back(towerObj);
+	}
+	void drawTowers(sf::RenderWindow &window) {
+		for (Tower t : towersBought) {
+			window.draw(t.getSprite());
+		}
+	}
+	void clearAllTowers(){
+		towersBought.clear();
+	}
 };
 

@@ -7,22 +7,43 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "screens.h"
+#include "Player.h"
+
+/*main.cpp
+	initializes the universal GUI style, including loading the font from file
+	initializes all the game screens as well as the window
+	loads the sprite sheet from file
+
+
+*/
 
 int main(int argc, char** argv)
 {
+	//make player object
+	string playerName = "George";
 
+	int playerHP = 1;
+	int playerCurrency = 200;
+	Player *user= new Player (playerName,playerHP,playerCurrency);
+	user->startHP = user->getHP();
+	// make tower manager
+	TowerManager *towerMan = new TowerManager();
+
+	//declaring all of the GUIStyle elements
 	sf::Font font;
 	sf::Color bodycol(0, 0, 0);
 	sf::Color bordercol(255, 255, 255);
 	sf::Color textcol(255, 255, 255);
 
-	sf::Texture spriteSheet;
-
-	if (!spriteSheet.loadFromFile("SpriteSheet.png")) {/*put in exception later*/ }
-
 	if (!font.loadFromFile("8bit16.ttf")) {/*put in exception later*/ }
 
+	//initialize GUIStyle
 	GUIStyle style(font, 2.0, bodycol, bordercol, textcol);
+
+	//load sprite sheet from file
+	sf::Texture spriteSheet;
+	if (!spriteSheet.loadFromFile("SpriteSheet.png")) {/*put in exception later*/ }
+
 
 	//Applications variables
 	std::vector<cScreen*> Screens;
@@ -32,22 +53,26 @@ int main(int argc, char** argv)
 	sf::RenderWindow window(sf::VideoMode(1000, 700), "Game Prototype");
 
 	//Screens preparations
-	MainMenu s0(style);
+	
+	WaveDescription *s1 = new WaveDescription(style);//wave description page
+	BuySellPage s2(style, spriteSheet, towerMan, user); //where user buys, sells, and places towers
+	WaveRunningPage s3(style, spriteSheet, user, towerMan); //wave runs
+	WaveComplete *s4 = new WaveComplete(style, user);//wave complete page
+	LevelComplete s5(style); //level complete
+	WinnerPage s6(style, user); //winner page
+	GameOverPage s7(style,user); //game over page
+	MainMenu s0(style, towerMan, s1, s4, user); //main menu page
+
+	//load all pages into vector
 	Screens.push_back(&s0);
-	WaveDescription s1(style);
-	Screens.push_back(&s1);
-	BuySellPage s2(style, spriteSheet);
+	Screens.push_back(&*(s1));
 	Screens.push_back(&s2);
-	WaveRunningPage s3(style, spriteSheet);
 	Screens.push_back(&s3);
-	WaveComplete s4(style);
-	Screens.push_back(&s4);
-	LevelComplete s5(style);
+	Screens.push_back(&*(s4));
 	Screens.push_back(&s5);
-	WinnerPage s6(style);
 	Screens.push_back(&s6);
-	GameOverPage s7(style);
 	Screens.push_back(&s7);
+
 
 
 	//Main loop
@@ -58,4 +83,5 @@ int main(int argc, char** argv)
 
 	return EXIT_SUCCESS;
 }
+
 
