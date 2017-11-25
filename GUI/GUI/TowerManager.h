@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 #include "Tower.h"
-#include "TowerManager.h"
 
 using namespace std;
 class TowerManager {
