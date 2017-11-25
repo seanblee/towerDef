@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-/*
+#include "HostileManager.h"
+
 using namespace std;
 class Projectile {
 private:
@@ -11,8 +12,8 @@ private:
 public:
 	
 	Projectile(int, int);
-	void travelFromTo(vector<int>, vector<int>);
-	int findTarget();
+	void travelFromTo(sf::Vector2f, sf::Vector2f, sf::RenderWindow &window);
+	int findTarget(HostileManager manager);
+	//Hostile selectTarget();
 };
 
-*/

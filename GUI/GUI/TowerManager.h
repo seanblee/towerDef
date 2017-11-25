@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 #include "Tower.h"
+#include "TowerManager.h"
 
 using namespace std;
 class TowerManager {
@@ -21,6 +22,11 @@ public:
 	void drawTowers(sf::RenderWindow &window) {
 		for (Tower t : towersBought) {
 			window.draw(t.getSprite());
+		}
+	}
+	void fireTowers(sf::RenderWindow &window, HostileManager manager) {
+		for (Tower t : towersBought) {
+			t.fireTower(manager, window);
 		}
 	}
 	void clearAllTowers(){

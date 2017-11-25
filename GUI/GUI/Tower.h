@@ -1,5 +1,8 @@
 #pragma once
 #include "stdafx.h"
+#include "Projectile.h"
+#include "HostileManager.h"
+
 class Tower {
 private:
 
@@ -27,6 +30,14 @@ public:
 
 	sf::Sprite getSprite() {
 		return towerImage;
+	}
+	void fireTower(HostileManager manager, sf::RenderWindow &window) {
+		Projectile bullet = Projectile(5,5);
+		int index = bullet.findTarget(manager);
+		sf::Vector2f towerLoc(getX(), getY());
+		sf::Vector2f hostileLoc(manager.getHostile().at(index).getPosition()[0], manager.getHostile().at(index).getPosition()[1]);
+		bullet.travelFromTo(towerLoc, hostileLoc, window);
+
 	}
 
 

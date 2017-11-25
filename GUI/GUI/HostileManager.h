@@ -21,6 +21,7 @@ public:
 	void killHost(Hostile host);
 	int totalHostilesEliminated;
 	int hostileKilledLastWave;
+	vector<Hostile> getHostile() { return hostilesAlive; }
 
 };
 using namespace std;

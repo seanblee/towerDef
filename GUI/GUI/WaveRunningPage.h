@@ -157,6 +157,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 
 
 				towerMan->drawTowers(window);
+				towerMan->fireTowers(window, *hostMan);
 
 
 				for (int col = 0; col < hostilesOnScreen.size(); col++) {
