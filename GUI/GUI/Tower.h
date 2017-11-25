@@ -22,10 +22,10 @@ public:
 	}
 
 	int getX() {
-		return x;
+		return towerImage.getPosition().x;
 	}
 	int getY() {
-		return y;
+		return towerImage.getPosition().y;
 	}
 
 	sf::Sprite getSprite() {
@@ -34,9 +34,7 @@ public:
 	void fireTower(HostileManager manager, sf::RenderWindow &window) {
 		Projectile bullet = Projectile(5,5);
 		int index = bullet.findTarget(manager);
-		sf::Vector2f towerLoc(getX(), getY());
-		sf::Vector2f hostileLoc(manager.getHostile().at(index).getPosition()[0], manager.getHostile().at(index).getPosition()[1]);
-		bullet.travelFromTo(towerLoc, hostileLoc, window);
+		bullet.travelFromTo(bullet, index, manager);
 
 	}
 

@@ -8,6 +8,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Hostile.h"
+#include "stdafx.h"
 
 class HostileManager
 {

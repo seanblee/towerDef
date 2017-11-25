@@ -1,13 +1,16 @@
 #include "HostileManager.h"
 #include "stdafx.h"
+#include "Hostile.h"
 
 using namespace std;
-Hostile::Hostile() {}
 
 void HostileManager::spawn(Hostile host)
 {
 	hostilesAlive.push_back(host);
 }
+
+
+
 
 bool HostileManager::isEveryoneDead()
 {
