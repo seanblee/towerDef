@@ -49,7 +49,6 @@ int BuySellPage::Run(sf::RenderWindow &window)
 	userMessage.push_back(" ");
 	path easyPath(easyPathMap, 20, 14);
 
-	TowerManager BuySellManager;
 
 
 	fstream mapFile;
@@ -140,9 +139,10 @@ int BuySellPage::Run(sf::RenderWindow &window)
 						break;
 					}
 					intMap[cur.getX()][cur.getY()] = tower;
-
-					BuySellManager.addTower(1, cur);
-					overlays.setMessage(userMessage[(tower*2) + 4]);
+					sf::Sprite newTowerSprite(cur.cursorImage);
+					Tower newTower(newTowerSprite);
+					BuySellManager->addTower(newTower);
+					overlays.setMessage(userMessage[(tower * 2) + 4]);
 					overlays.setOptions(userMessage[(tower * 2) + 5]);
 
 					overlays.setMoney(money);
@@ -195,9 +195,7 @@ int BuySellPage::Run(sf::RenderWindow &window)
 			window.clear();
 			window.draw(easyPath.pathImage);
 			window.draw(overlays.backing);
-
-			BuySellManager.drawTowers(window);
-
+			BuySellManager->drawTowers(window);
 			window.draw(cur.cursorImage);
 
 			window.draw(buySellOverlay.getBorder(1));

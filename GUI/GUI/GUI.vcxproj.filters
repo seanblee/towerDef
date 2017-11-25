@@ -75,22 +75,25 @@
     <ClInclude Include="Cursor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-=======
-    <ClInclude Include="fakeHostile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wave.h">
       <Filter>Header Files</Filter>
     </ClInclude>
->>>>>>> GUI
     <ClInclude Include="Tower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TowerManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hostile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HostileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -122,11 +125,10 @@
     <ClCompile Include="BuySellPage.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Tower.cpp">
-=======
     <ClCompile Include="Player.cpp">
->>>>>>> GUI
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>

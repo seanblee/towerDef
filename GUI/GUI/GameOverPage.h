@@ -5,14 +5,16 @@
 #include "stdafx.h"
 #include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
+#include "HostileManager.h"
 //display end of game statistic when player loses
 class GameOverPage : public cScreen
 {
 
 	Player *user;
+	HostileManager *hostMan;
 public:
 
-	GameOverPage(GUIStyle& style, Player*& p) : cScreen(style) { user = p; }
+	GameOverPage(GUIStyle& style, Player*& p, HostileManager*& tempMan) : cScreen(style) { user = p; hostMan = tempMan; }
 	virtual int Run(sf::RenderWindow &window);
 };
 int GameOverPage::Run(sf::RenderWindow &window)
@@ -65,6 +67,7 @@ int GameOverPage::Run(sf::RenderWindow &window)
 					return 0;
 				}
 			}
+		}
 			window.clear(style.bodyCol);
 
 			//draw score and title text
@@ -78,14 +81,14 @@ int GameOverPage::Run(sf::RenderWindow &window)
 			addElement.drawNextButton(window);
 
 			// info text of end of game statistic when user loses
-			int enemiesEliminated = 100;//change this to real info
+			int enemiesEliminated = hostMan->totalHostilesEliminated;//change this to real info
 			addElement.drawInfoBar(window, TitleText1, 0, std::to_string(enemiesEliminated)+" :total Enemies Eliminated");
 			int currLeft = user->getMoney();
 			addElement.drawInfoBar(window, TitleText1, 1, std::to_string(currLeft) + " :Currency Remaining");
 			
 			
 			window.display();
-		}
+		
 
 	}
 }

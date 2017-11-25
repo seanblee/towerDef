@@ -2,12 +2,11 @@
 //
 
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "screens.h"
 #include "Player.h"
+//#include "HostileManager.h"
 
 /*main.cpp
 	initializes the universal GUI style, including loading the font from file
@@ -22,12 +21,13 @@ int main(int argc, char** argv)
 	//make player object
 	string playerName = "George";
 
-	int playerHP = 1;
+	int playerHP = 10;
 	int playerCurrency = 200;
 	Player *user= new Player (playerName,playerHP,playerCurrency);
 	user->startHP = user->getHP();
 	// make tower manager
 	TowerManager *towerMan = new TowerManager();
+	HostileManager *hostMan = new HostileManager();
 
 	//declaring all of the GUIStyle elements
 	sf::Font font;
@@ -56,18 +56,18 @@ int main(int argc, char** argv)
 	
 	WaveDescription *s1 = new WaveDescription(style);//wave description page
 	BuySellPage s2(style, spriteSheet, towerMan, user); //where user buys, sells, and places towers
-	WaveRunningPage s3(style, spriteSheet, user, towerMan); //wave runs
-	WaveComplete *s4 = new WaveComplete(style, user);//wave complete page
+	WaveRunningPage *s3=new WaveRunningPage(style, spriteSheet, user, towerMan, hostMan); //wave runs
+	WaveComplete *s4 = new WaveComplete(style, user, hostMan);//wave complete page
 	LevelComplete s5(style); //level complete
-	WinnerPage s6(style, user); //winner page
-	GameOverPage s7(style,user); //game over page
-	MainMenu s0(style, towerMan, s1, s4, user); //main menu page
+	WinnerPage s6(style, user, hostMan); //winner page
+	GameOverPage s7(style,user, hostMan); //game over page
+	MainMenu s0(style, towerMan, s1, s4, user,s3); //main menu page
 
 	//load all pages into vector
 	Screens.push_back(&s0);
 	Screens.push_back(&*(s1));
 	Screens.push_back(&s2);
-	Screens.push_back(&s3);
+	Screens.push_back(&*(s3));
 	Screens.push_back(&*(s4));
 	Screens.push_back(&s5);
 	Screens.push_back(&s6);

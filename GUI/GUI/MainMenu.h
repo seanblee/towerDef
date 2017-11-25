@@ -8,6 +8,7 @@
 #include "TowerManager.h"
 #include "WaveDescription.h"
 #include "WaveComplete.h"
+#include "WaveRunningPage.h"
 
 //Displays star screen and reset variables to starting point when displayed
 
@@ -16,6 +17,7 @@ class MainMenu : public cScreen
 	TowerManager *towerMan;
 	WaveDescription *descriptionPage;
 	WaveComplete *waveCompPage;
+	WaveRunningPage *waveRunPage;
 	Player *user;
 public:
 	//resetting all variable so when we restart the game we are starting fresh
@@ -23,14 +25,17 @@ public:
 		towerMan->clearAllTowers();
 		descriptionPage->resetScreen();
 		waveCompPage->resetScreen();
-		user->setHP(1);
+		waveRunPage->resetScreen();
+		user->setHP(user->startHP);
 		user->setMoney(200);
 	}
-	MainMenu(GUIStyle& style, TowerManager*& tempMan, WaveDescription*& s1, WaveComplete*& s4, Player*& p) : cScreen(style) {
+	MainMenu(GUIStyle& style, TowerManager*& tempMan, WaveDescription*& s1, WaveComplete*& s4, Player*& p, WaveRunningPage*& s3 ) : cScreen(style) {
 		towerMan = tempMan;
 		descriptionPage = s1;
 		waveCompPage = s4;
+		waveRunPage = s3;
 		user = p;
+
 	}
 	virtual int Run(sf::RenderWindow &window);
 };

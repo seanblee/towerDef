@@ -41,7 +41,7 @@ buySell::buySell(int n, sf::Texture& spriteSheet, GUIStyle& style) : numTowers(n
 		towersprite.setTextureRect(sf::IntRect(25*i, 0, 25, 25));
 		towersprite.setPosition(x+25, y+25);
 		towersprite.scale(2.0f, 2.0f);
-		towersprite.setColor(sf::Color(255, x+10, x + 40)); //temp to distinguish different sprite images; 
+		towersprite.setColor(sf::Color(i*100, 250-50*i,50*i+100)); //temp to distinguish different sprite images; 
 		//will be removed once i actually make the sprite sheet
 
 		//push onto towers vector

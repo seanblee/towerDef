@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "stdafx.h"
 #include "Tower.h"
 
 using namespace std;

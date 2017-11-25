@@ -1,9 +1,9 @@
 #pragma once
 #include "cScreen.h"
 #include "stdafx.h"
-#include "WindowsProject2.h"
 #include <SFML/Graphics.hpp>
 #include "screenElement.h"
+#include "HostileManager.h"
 //displays statistics for wave just completed
 //todo: base statistics off of info from other classes, 
 class WaveComplete : public cScreen
@@ -11,11 +11,12 @@ class WaveComplete : public cScreen
 	int numWave = 0;
 public:
 	Player *user;
+	HostileManager *hostMan;
 	//to reset wave on when restarting game
 	void resetScreen() {
 		numWave = 0;
 	}
-	WaveComplete(GUIStyle& style, Player*& p) : cScreen(style) { user = p; }
+	WaveComplete(GUIStyle& style, Player*& p, HostileManager*& tempMan) : cScreen(style) { user = p; hostMan = tempMan; }
 	virtual int Run(sf::RenderWindow &window);
 };
 int WaveComplete::Run(sf::RenderWindow &window) {
@@ -60,7 +61,7 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 					window.close();
 					return -1;
 				}
-				if (event.key.code == sf::Keyboard::Return&&wave.getWaveNumber()==3)
+				if (event.key.code == sf::Keyboard::Return&&wave.getWaveNumber() == 3)
 				{
 					//player just won the game
 					return 6;
@@ -71,6 +72,7 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 					return 1;
 				}
 			}
+		}
 			window.clear(style.bodyCol);
 			//write title
 			window.draw(TitleText);
@@ -80,9 +82,9 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 			addElement.setStyle(style);
 			addElement.drawExitText(window);
 			addElement.drawNextButton(window);
-
+			
 			//write the info to be displayed
-			int numEnemiesKilled = 100;//change to real info
+			int numEnemiesKilled = hostMan->hostileKilledLastWave;
 			addElement.drawInfoBar(window,TitleText,0, std::to_string(numEnemiesKilled) +" :Hostiles Eliminated");
 			int playerHealthLost = user->HPstartLastWave-user->getHP();
 			addElement.drawInfoBar(window, TitleText, 1, std::to_string(playerHealthLost) + " :HP Lost");
@@ -90,7 +92,7 @@ int WaveComplete::Run(sf::RenderWindow &window) {
 			addElement.drawInfoBar(window, TitleText, 2, std::to_string(currencyGained) + " :Currency Gained");
 			
 			window.display();
-		}
+		
 
 	}
 }

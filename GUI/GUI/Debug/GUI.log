@@ -1,48 +1,31 @@
-﻿  BuySellPage.cpp
-<<<<<<< HEAD
-c:\users\sean lee\documents\school\320\madawaskarepository\gui\gui\buysellpage.cpp(230): warning C4715: 'BuySellPage::Run': not all control paths return a value
-  GUI.vcxproj -> C:\Users\Sean Lee\Documents\School\320\madawaskarepository\GUI\Debug\GUI.exe
-=======
-  Generating Code...
-c:\users\kaitlynn\desktop\gui\gui\buysellpage.cpp(228): warning C4715: 'BuySellPage::Run': not all control paths return a value
-  Compiling...
-  main.cpp
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(82): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(103): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\screenelement.h(132): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\mainmenu.h(56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(131): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(150): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(150): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(169): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(169): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(188): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(188): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(238): warning C4018: '<': signed/unsigned mismatch
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(278): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(282): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(325): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(326): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(352): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(353): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(378): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-c:\users\kaitlynn\desktop\gui\gui\wavedescription.h(106): warning C4715: 'WaveDescription::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\wavecomplete.h(96): warning C4715: 'WaveComplete::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\levelcomplete.h(75): warning C4715: 'LevelComplete::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\winnerpage.h(93): warning C4715: 'WinnerPage::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\gameoverpage.h(91): warning C4715: 'GameOverPage::Run': not all control paths return a value
-c:\users\kaitlynn\desktop\gui\gui\waverunningpage.h(245): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
-  GUI.vcxproj -> C:\Users\Kaitlynn\Desktop\GUI\Debug\GUI.exe
->>>>>>> GUI
+﻿  main.cpp
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(181): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(182): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(186): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(187): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(98): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(100): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(38): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(76): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(162): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(165): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(169): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(241): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(293): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\mainmenu.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\mainmenu.h(61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(105): warning C4715: 'WaveDescription::Run': not all control paths return a value
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavecomplete.h(98): warning C4715: 'WaveComplete::Run': not all control paths return a value
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(200): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\levelcomplete.h(75): warning C4715: 'LevelComplete::Run': not all control paths return a value
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\winnerpage.h(95): warning C4715: 'WinnerPage::Run': not all control paths return a value
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\gameoverpage.h(94): warning C4715: 'GameOverPage::Run': not all control paths return a value
+  GUI.vcxproj -> C:\Users\marieqian\source\repos\New folder (3)\GUI\Debug\GUI.exe

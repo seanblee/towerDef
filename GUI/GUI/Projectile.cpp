@@ -1,9 +1,8 @@
-#pragma once
-#include "stdafx.h"
-#include <SFML/Graphics.hpp>
+
+#include "stdafx.h"/*
 #include "Projectile.h"
-#include "Hostile.h"
-#include "HostileManager.h"
+#include <SFML/Graphics.hpp>
+
 
 using namespace std;
 
@@ -13,7 +12,7 @@ Projectile::Projectile(int dmg, int rad) {
 	range = rad;
 }
 
-std::vector<int> Projectile::travelFromTo(vector<int> start, vector<int> end) 
+void Projectile::travelFromTo(vector<int> start, vector<int> end) 
 {
 	int dx = start[0] - end[0];
 	int dy = start[1] - end[1];
@@ -39,7 +38,7 @@ std::vector<int> Projectile::travelFromTo(vector<int> start, vector<int> end)
 
 int Projectile::findTarget()
 {
-	Hostile currHost = new Hostile;
+	Hostile* currHost = new Hostile;
 	int currPos = 0;
 	bool found = false;
 
@@ -50,7 +49,7 @@ int Projectile::findTarget()
 
 		double dist = sqrt(xpos*xpos + ypos*ypos);
 
-		if (dist <= rad)
+		if (dist <= range)
 		{
 			currHost = hostilesAlive.at(m);
 			curPoss = m;
@@ -73,3 +72,4 @@ Hostile Projecile::selectTarget()
 	return hostilesAlive.get(findTarget());
 }
 
+*/
