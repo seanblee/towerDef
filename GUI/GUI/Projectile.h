@@ -12,7 +12,8 @@ private:
 	int damage;
 
 public:
-	
+
+	Projectile();
 	Projectile(int, int);
 	void travelFromTo(Projectile, Hostile, HostileManager);
 	int findTarget(HostileManager);

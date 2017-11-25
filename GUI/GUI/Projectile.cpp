@@ -9,6 +9,8 @@
 
 using namespace std;
 
+Projectile::Projectile() {}
+
 Projectile::Projectile(int dmg, int rad) {
 	sf::Texture spriteSheet; 
 	spriteSheet.loadFromFile("SpriteSheet.png");
@@ -22,7 +24,7 @@ Projectile::Projectile(int dmg, int rad) {
 
 void Projectile::travelFromTo(Projectile bullet, Hostile hostile, HostileManager manager) {
 	hostile.setDamageTaken(bullet.damage);
-	if (hostile.isDead) hostile.isAlive == false;
+	if (hostile.isDead()) hostile.isAlive == false;
 }
 
 int Projectile::findTarget(HostileManager manager)

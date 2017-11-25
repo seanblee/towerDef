@@ -1,8 +1,10 @@
-﻿  main.cpp
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(181): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+﻿  Skipping... (no relevant changes detected)
+  stdafx.cpp
+  main.cpp
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(182): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(186): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(183): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(187): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(188): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(42): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -12,20 +14,52 @@ c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(98): warn
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(100): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(102): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\screenelement.h(118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostilemanager.h(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(28): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(31): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(38): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(76): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(162): warning C4018: '<': signed/unsigned mismatch
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(165): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(169): warning C4018: '<': signed/unsigned mismatch
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(241): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(293): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(81): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(167): error C2664: 'void TowerManager::fireTowers(sf::RenderWindow &,HostileManager)': cannot convert argument 2 from 'HostileManager *' to 'HostileManager'
+  c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(167): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(170): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(174): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(179): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(253): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(268): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(313): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\mainmenu.h(57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\marieqian\source\repos\new folder (3)\gui\gui\mainmenu.h(61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavedescription.h(105): warning C4715: 'WaveDescription::Run': not all control paths return a value
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\wavecomplete.h(98): warning C4715: 'WaveComplete::Run': not all control paths return a value
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\waverunningpage.h(200): warning C4715: 'WaveRunningPage::Run': not all control paths return a value
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\levelcomplete.h(75): warning C4715: 'LevelComplete::Run': not all control paths return a value
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\winnerpage.h(95): warning C4715: 'WinnerPage::Run': not all control paths return a value
-c:\users\marieqian\source\repos\new folder (3)\gui\gui\gameoverpage.h(94): warning C4715: 'GameOverPage::Run': not all control paths return a value
-  GUI.vcxproj -> C:\Users\marieqian\source\repos\New folder (3)\GUI\Debug\GUI.exe
+  Projectile.cpp
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(182): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(183): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(187): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(188): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostilemanager.h(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(17): error C3646: 'bullet': unknown override specifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(23): error C2065: 'Projectile': undeclared identifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(23): error C2146: syntax error: missing ';' before identifier 'temp'
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(23): error C3861: 'temp': identifier not found
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(24): error C2065: 'bullet': undeclared identifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(24): error C2065: 'temp': undeclared identifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(28): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(31): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(39): error C2065: 'bullet': undeclared identifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(39): error C2228: left of '.findTarget' must have class/struct/union
+  c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(39): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(40): error C2065: 'bullet': undeclared identifier
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(40): error C2228: left of '.travelFromTo' must have class/struct/union
+  c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(40): note: type is 'unknown-type'
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\projectile.cpp(27): warning C4553: '==': operator has no effect; did you intend '='?
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\projectile.cpp(35): warning C4018: '<': signed/unsigned mismatch
+  BuySellPage.cpp
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(182): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(183): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(187): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostile.h(188): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\hostilemanager.h(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(28): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\tower.h(31): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  Generating Code...
+c:\users\marieqian\source\repos\new folder (3)\gui\gui\buysellpage.cpp(228): warning C4715: 'BuySellPage::Run': not all control paths return a value

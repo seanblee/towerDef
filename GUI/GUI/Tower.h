@@ -14,11 +14,14 @@ private:
 	int attackSpeed;
 	int cost;
 	int radius;
+	Projectile bullet;
 
 public:
 
 	Tower(sf::Sprite img) {
 		towerImage = img;
+		Projectile temp(5, 5);
+		bullet = temp;
 	}
 
 	int getX() {
@@ -32,7 +35,7 @@ public:
 		return towerImage;
 	}
 	void fireTower(HostileManager manager, sf::RenderWindow &window) {
-		Projectile bullet = Projectile(5,5);
+		
 		int index = bullet.findTarget(manager);
 		bullet.travelFromTo(bullet, index, manager);
 

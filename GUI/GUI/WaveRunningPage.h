@@ -44,6 +44,8 @@ class WaveRunningPage : public cScreen
 	TowerManager *towerMan;
 	HostileManager *hostMan;
 
+	
+	ofstream myfile;
 
 public:
 	void resetScreen() {
@@ -54,6 +56,7 @@ public:
 		user = p; 
 		towerMan = tempMan;
 		hostMan = tempHost;
+		myfile.open("log.txt");
 	}
 	
 	virtual int Run(sf::RenderWindow &window);
@@ -71,6 +74,8 @@ public:
 
 int WaveRunningPage::Run(sf::RenderWindow &window)
 {
+
+	
 	numWave++;
 	Wave wave(numWave);
 	srand(time(NULL));
@@ -122,8 +127,10 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				if (event.key.code == sf::Keyboard::C) {
 					hostMan->totalHostilesEliminated++;
 					hostMan->hostileKilledLastWave++;
-					hostMan->killHost(hostilesOnScreen[0]);
-					removeHostile(hostilesOnScreen[0]);
+					//hostMan->killHost(hostilesOnScreen[0]);
+					//removeHostile(hostilesOnScreen[0]);
+					hostilesOnScreen[1].isAlive = false;
+					user->setMoney(user->getMoney() + 10);//money increase whenenemy killed
 				}
 				//END TEMPORARY STUFF
 			}
@@ -157,20 +164,24 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 
 
 				towerMan->drawTowers(window);
-				towerMan->fireTowers(window, *hostMan);
+				towerMan->fireTowers(window, hostMan);
 
 
 				for (int col = 0; col < hostilesOnScreen.size(); col++) {
-					int x = hostilesOnScreen[col].getNextPos()[0];
-					int y = hostilesOnScreen[col].getNextPos()[1];
-					hostilesOnScreen[col].sprite.setPosition(x, y);
-					hostilesOnScreen[col].setPosition();
-						window.draw(hostilesOnScreen[col].sprite);		
+					if (hostilesOnScreen[col].isAlive) {
+						int x = hostilesOnScreen[col].getNextPos()[0];
+						int y = hostilesOnScreen[col].getNextPos()[1];
+						hostilesOnScreen[col].sprite.setPosition(x, y);
+						hostilesOnScreen[col].setPosition();
+						window.draw(hostilesOnScreen[col].sprite);
+					}
 				}
 				for (int col = 0; col < hostilesOnScreen.size(); col++) {
-					if (checkHostileEndOfPath(hostilesOnScreen[col])) {
-						hostMan->killHost(hostilesOnScreen[col]);
-						removeHostile(hostilesOnScreen[col]);
+					if (hostilesOnScreen[col].sprite.getPosition().x >= 1000&&hostilesOnScreen[col].isAlive) {
+						//hostMan->killHost(hostilesOnScreen[col]);
+						//removeHostile(hostilesOnScreen[col]);
+						user->setHP(user->getHP() - 1);
+						hostilesOnScreen[col].isAlive = false;
 						break;
 					}
 				}
@@ -248,9 +259,17 @@ void WaveRunningPage::spawnHostile(Hostile h) {
 		h.sprite.setColor((sf::Color(250, 125, 0)));
 	else if (h.type == 3)
 		h.sprite.setColor((sf::Color(250, 250, 0)));
+	
 	//add hostile to vector of those to draw
 	hostilesOnScreen.push_back(h);
 	h.idNum = hostilesOnScreen.size() - 1;
+	
+	myfile << to_string(h.idNum) << endl;
+	for (int k(0); k < hostilesOnScreen.size(); k++) {
+		myfile << to_string(hostilesOnScreen[k].isAlive);
+	}
+	
+	
 	
 	h.setPosition();
 }
@@ -307,8 +326,15 @@ void WaveRunningPage::removeHostile(Hostile h) {
 	//int temp=hostilesOnScreen[hostilesOnScreen.size() - 1].idNum;
 	//hostilesOnScreen[hostilesOnScreen.size() - 1].idNum = hostilesOnScreen[h.idNum].idNum;
 	//hostilesOnScreen[h.idNum].idNum = temp;
-	int temp = h.idNum;
-	hostilesOnScreen.erase(hostilesOnScreen.begin()+temp);
+	//int temp = h.idNum;
+	//hostilesOnScreen.erase(hostilesOnScreen.begin()+temp);
+	//for (int col = 0; col < hostilesOnScreen.size(); col++) {
+		//if (col>h.idNum) {
+		//	hostilesOnScreen[col].idNum--;
+		//}
+		
+	//}
+	h.isAlive = false;
 	user->setMoney(user->getMoney() + 10);//money increase whenenemy killed
 }
 
@@ -317,7 +343,7 @@ void WaveRunningPage::removeHostile(Hostile h) {
 bool WaveRunningPage::checkHostileEndOfPath(Hostile h) {
 	if (h.sprite.getPosition().x >= 1000) {//if end on right this would mean the hostile is moving off screen at end of path
 		user->setHP(user->getHP()-1);	//and needs to be removed
-		user->setMoney(user->getMoney() - 10);//money goes down then back up to starting point if enemy makes it through
+		//user->setMoney(user->getMoney() - 10);//money goes down then back up to starting point if enemy makes it through
 		//j.incNumEscaped()
 		return true;
 	}
