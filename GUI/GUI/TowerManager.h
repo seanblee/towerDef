@@ -23,9 +23,9 @@ public:
 			window.draw(t.getSprite());
 		}
 	}
-	void fireTowers(sf::RenderWindow &window, HostileManager manager) {
+	void fireTowers(HostileManager& manager) {
 		for (Tower t : towersBought) {
-			t.fireTower(manager, window);
+			t.fireTower(manager);
 		}
 	}
 	void clearAllTowers(){

@@ -118,6 +118,8 @@
     <ClCompile Include="BuySell.cpp" />
     <ClCompile Include="BuySellPage.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Hostile.cpp" />
+    <ClCompile Include="HostileManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovingSprite.cpp" />
     <ClCompile Include="path.cpp" />

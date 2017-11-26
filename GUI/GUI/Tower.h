@@ -1,12 +1,13 @@
 #pragma once
 #include "stdafx.h"
 #include "Projectile.h"
-#include "HostileManager.h"
+#include <fstream>
 
 class Tower {
 private:
 
 	sf::Sprite towerImage;
+	Projectile bullet;
 	int x;
 	int y;
 	int type;
@@ -14,14 +15,14 @@ private:
 	int attackSpeed;
 	int cost;
 	int radius;
-	Projectile bullet;
+	
 
 public:
-
+	
 	Tower(sf::Sprite img) {
 		towerImage = img;
-		Projectile temp(5, 5);
-		bullet = temp;
+		bullet = Projectile(1000, 1000);
+
 	}
 
 	int getX() {
@@ -34,10 +35,10 @@ public:
 	sf::Sprite getSprite() {
 		return towerImage;
 	}
-	void fireTower(HostileManager manager, sf::RenderWindow &window) {
-		
-		int index = bullet.findTarget(manager);
-		bullet.travelFromTo(bullet, index, manager);
+	void fireTower(HostileManager& manager) {
+
+		int index = bullet.findTarget(manager, towerImage.getPosition().x, towerImage.getPosition().y);
+		bullet.travelFromTo(manager.hostilesAlive[index]);
 
 	}
 

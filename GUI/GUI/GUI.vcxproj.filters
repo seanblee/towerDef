@@ -131,6 +131,12 @@
     <ClCompile Include="Projectile.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hostile.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HostileManager.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GUI.rc">

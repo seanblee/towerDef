@@ -40,6 +40,8 @@ class WaveRunningPage : public cScreen
 	int numWave = 0;//keeps track of what wave we are on
 	int numHostilesLeftToSpawn;
 
+	vector<int> timers;
+
 	Player *user;
 	TowerManager *towerMan;
 	HostileManager *hostMan;
@@ -50,13 +52,13 @@ class WaveRunningPage : public cScreen
 public:
 	void resetScreen() {
 		numWave = 0;
+//		killedHostiles.clear();
 	}
 	WaveRunningPage(GUIStyle& style, sf::Texture Sheet, Player*& p, TowerManager*& tempMan, HostileManager*& tempHost) : cScreen(style) { 
 		spriteSheet = Sheet; 
 		user = p; 
 		towerMan = tempMan;
 		hostMan = tempHost;
-		myfile.open("log.txt");
 	}
 	
 	virtual int Run(sf::RenderWindow &window);
@@ -74,8 +76,11 @@ public:
 
 int WaveRunningPage::Run(sf::RenderWindow &window)
 {
-
-	
+	myfile.open("log.txt");
+	int i = 0;
+	int j = 0;
+	sf::Color clear(0, 0, 0, 0);
+	bool flashFlag(true);
 	numWave++;
 	Wave wave(numWave);
 	srand(time(NULL));
@@ -101,9 +106,11 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 	switchPage = false;
 	//remove all hostiles still on screen from last wave
 	hostilesOnScreen.clear();
+	//killedHostiles.clear();
 	Hostile h(wave.getHostileType());
 	spawnHostile(h);
 	hostMan->spawn(h);
+	timers.push_back(0);
 	while (window.isOpen())
 	{
 
@@ -122,17 +129,26 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 			//TEMPORARY
 			if (event.type == sf::Event::KeyPressed)
 			{
-
+				
 				//this is temporary, wait for projectile stuff
 				if (event.key.code == sf::Keyboard::C) {
-					hostMan->totalHostilesEliminated++;
-					hostMan->hostileKilledLastWave++;
+					
+					hostilesOnScreen[i].sprite.setColor(sf::Color::White);
+					//sf::Sprite stillHostile = hostilesOnScreen[i].sprite;
+					//killedHostiles.push_back(stillHostile);
+					
 					//hostMan->killHost(hostilesOnScreen[0]);
 					//removeHostile(hostilesOnScreen[0]);
-					hostilesOnScreen[1].isAlive = false;
-					user->setMoney(user->getMoney() + 10);//money increase whenenemy killed
-				}
-				//END TEMPORARY STUFF
+					//if (hostilesOnScreen[i].isAlive) {
+						hostMan->totalHostilesEliminated++;
+						hostMan->hostileKilledLastWave++;
+						hostilesOnScreen[i].isAlive = false;
+						user->setMoney(user->getMoney() + 10);//money increase whenenemy killed
+						
+
+					//}
+					i++;
+				}//END TEMPORARY STUFF
 			}
 		}
 
@@ -141,6 +157,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 					Hostile h(wave.getHostileType());
 					spawnHostile(h);
 					hostMan->spawn(h);
+					timers.push_back(0);
 					clock.restart();
 				}
 
@@ -161,18 +178,58 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 				window.draw(overlays.getHP());
 				window.draw(overlays.getMoney());
 				window.draw(overlays.getMessage());
-
+				
 
 				towerMan->drawTowers(window);
-				towerMan->fireTowers(window, hostMan);
+				towerMan->fireTowers(*hostMan);
 
+				/*
+				for (i = (j/250); i < killedHostiles.size(); i++) {
+					window.draw(killedHostiles[i]);
+					if ((j + 100) % 50 == 0) {
+						if (flashFlag) {
+							hostilesOnScreen[i].sprite.setColor(clear);
+							flashFlag = false;
+						}
+						else {
+							hostilesOnScreen[i].sprite.setColor(sf::Color::White);
+							flashFlag = true;
+						}
+					}
+					j++;
+				}
+				*/
 
 				for (int col = 0; col < hostilesOnScreen.size(); col++) {
-					if (hostilesOnScreen[col].isAlive) {
-						int x = hostilesOnScreen[col].getNextPos()[0];
-						int y = hostilesOnScreen[col].getNextPos()[1];
-						hostilesOnScreen[col].sprite.setPosition(x, y);
-						hostilesOnScreen[col].setPosition();
+					if (hostilesOnScreen[col].canDraw) {
+						if (hostilesOnScreen[col].isAlive) {
+
+							int x = hostilesOnScreen[col].getNextPos()[0];
+							int y = hostilesOnScreen[col].getNextPos()[1];
+							hostilesOnScreen[col].sprite.setPosition(x, y);
+							hostilesOnScreen[col].setPosition();
+							
+						}
+						else {
+							timers[col]++;
+							myfile << col << ": " << timers[col] << endl;
+							if (timers[col]%50 == 0) {
+								if (flashFlag) {
+									hostilesOnScreen[col].sprite.setColor(clear);
+								}
+								else {
+									hostilesOnScreen[col].sprite.setColor(sf::Color::White);
+								}
+								flashFlag ^= 1;
+
+							}
+							if (timers[col] == 250) {
+								hostilesOnScreen[col].canDraw = false;
+								timers[col] = 0;
+								break;
+							}
+							
+						}
 						window.draw(hostilesOnScreen[col].sprite);
 					}
 				}
@@ -185,6 +242,12 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 						break;
 					}
 				}
+				bool isEveryOneDead = true;
+				for (int col = 0; col < hostilesOnScreen.size(); col++) {
+					if (hostilesOnScreen[col].canDraw == true) {
+						isEveryOneDead = false;
+					}
+				}
 
 
 				//time to switch the page?
@@ -193,7 +256,7 @@ int WaveRunningPage::Run(sf::RenderWindow &window)
 					nextPageInt = 7;
 				}
 
-				if (hostMan->isEveryoneDead()&& user->getHP() >0 && numHostilesLeftToSpawn == 0) {//go to waveComplete page
+				if (isEveryOneDead && user->getHP() >0 && numHostilesLeftToSpawn == 0) {//go to waveComplete page
 					switchPage = true;
 					nextPageInt = 4;
 				}
@@ -264,10 +327,10 @@ void WaveRunningPage::spawnHostile(Hostile h) {
 	hostilesOnScreen.push_back(h);
 	h.idNum = hostilesOnScreen.size() - 1;
 	
-	myfile << to_string(h.idNum) << endl;
-	for (int k(0); k < hostilesOnScreen.size(); k++) {
-		myfile << to_string(hostilesOnScreen[k].isAlive);
-	}
+	//myfile << to_string(h.idNum) << endl;
+	//for (int k(0); k < hostilesOnScreen.size(); k++) {
+		//myfile << to_string(hostilesOnScreen[k].isAlive);
+	//}
 	
 	
 	

@@ -2,10 +2,6 @@
 #include "stdafx.h"
 #include "Projectile.h"
 #include <SFML/Graphics.hpp>
-#include "Hostile.h"
-#include "HostileManager.h"
-#include "Tower.h"
-
 
 using namespace std;
 
@@ -22,38 +18,34 @@ Projectile::Projectile(int dmg, int rad) {
 	range = rad;
 }
 
-void Projectile::travelFromTo(Projectile bullet, Hostile hostile, HostileManager manager) {
-	hostile.setDamageTaken(bullet.damage);
-	if (hostile.isDead()) hostile.isAlive == false;
+void Projectile::travelFromTo(Hostile& hostile) {
+	hostile.setDamageTaken(damage);
+	if (hostile.getDamageTaken() >= hostile.getTotalHealth()) {
+		hostile.isAlive = false;
+		hostile.sprite.setColor(sf::Color::White);
+	}
 }
 
-int Projectile::findTarget(HostileManager manager)
+int Projectile::findTarget(HostileManager& manager, const float x, const float y)
 {
-	int currPos = 0;
 	bool found = false;
+	vector<Hostile> hostiles(manager.getHostile());
+	float xpos, ypos;
 
-	for (int m = 0; m < manager.getHostile().size(); m++)
+	for (int m = 0; m < hostiles.size(); m++)
 	{
-		int xpos = manager.getHostile().at(m).getPosition()[0];
-		int ypos = manager.getHostile().at(m).getPosition()[1];
+		xpos = abs(hostiles.at(m).getPosition()[0] - x);
+		ypos = abs(hostiles.at(m).getPosition()[1] - y);
 
 		double dist = sqrt(xpos*xpos + ypos*ypos);
 
 		if (dist <= range)
 		{
-			currPos = m;
-			found = true;
+			return m;
 		}
 	}
 
-	if (found == true)
-	{
-		return currPos;
-	}
-	else
-	{
-		return -1;
-	}
+	return -1;
 }
 /*
 Hostile Projectile::selectTarget()

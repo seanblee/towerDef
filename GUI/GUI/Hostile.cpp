@@ -1,13 +1,9 @@
 
 #include "stdafx.h"
-#include "Projectile.h"
-#include <SFML/Graphics.hpp>
 #include "Hostile.h"
 
 
-using namespace std;
-
-Hostile::Hostile() {}
+Hostile::Hostile() { isAlive = true; canDraw = true; }
 
 std::vector<int> Hostile::getNextPos()
 {
@@ -73,6 +69,8 @@ std::vector<int> Hostile::getNextPos()
 }
 Hostile::Hostile(int id)
 {
+	isAlive = true;
+	canDraw = true;
 	if (id == 1)
 	{
 		// set stats for id1
@@ -118,7 +116,7 @@ int Hostile::getMoveSpeed()
 
 int Hostile::getDamageTaken()
 {
-	return MoveSpeed;
+	return DamageTaken;
 }
 
 std::vector<int> Hostile::getPosition()
@@ -134,7 +132,7 @@ void Hostile::setMoveSpeed(int ms)
 
 void Hostile::setDamageTaken(int dmg)
 {
-	DamageTaken = DamageTaken - dmg;
+	DamageTaken = DamageTaken + dmg;
 }
 
 void Hostile::setidNum(int idNum)
@@ -158,17 +156,16 @@ void Hostile::setPosition()
 
 void Hostile::takeDamage(int dmg)
 {
-	setDamageTaken(getTotalHealth() - getDamageTaken() - dmg);
+	setDamageTaken(dmg);
 }
 
 bool Hostile::isDead()
 {
-	if (getDamageTaken() >= getTotalHealth())
+	if (DamageTaken >= getTotalHealth())
 	{
 		return true;
 	}
 	return false;
 }
-
 
 

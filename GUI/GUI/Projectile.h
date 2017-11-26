@@ -1,8 +1,7 @@
 #pragma once
+#include "stdafx.h"
 #include <SFML/Graphics.hpp>
 #include "HostileManager.h"
-#include "Tower.h"
-#include "Hostile.h"
 
 using namespace std;
 class Projectile {
@@ -12,11 +11,12 @@ private:
 	int damage;
 
 public:
+	
 
 	Projectile();
 	Projectile(int, int);
-	void travelFromTo(Projectile, Hostile, HostileManager);
-	int findTarget(HostileManager);
+	void travelFromTo(Hostile&);
+	int findTarget(HostileManager&, const float, const float);
 	//Hostile selectTarget();
 };
 
